@@ -1,0 +1,487 @@
+
+==================== FINAL INTERFACE ====================
+2017-04-05 17:38:05.061644 UTC
+
+interface nscotty-0.1.0.0-G3SkqhduKVO4XhmyL2KzU3:Db 8002
+  interface hash: f28f96679f0490450cbe383082e4f7ed
+  ABI hash: a4c846a6be9448d1168b1e2c5d061168
+  export-list hash: 24f8ad06768b11fa89b3d650cd5af219
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 9e0da008b760b9f631ea767ea89f8c4f
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Db.fetchSimple
+  Db.getListPhotos
+module dependencies: Domen
+package dependencies: aeson-1.1.1.0@aeson-1.1.1.0-E0pNGBz5C5k34Vt8d6UT7w
+                      array-0.5.1.1@array-0.5.1.1
+                      attoparsec-0.13.1.0@attoparsec-0.13.1.0-HCAgpBrKCLJ5li8FbfXxE1
+                      base-4.9.1.0
+                      base-compat-0.9.1@base-compat-0.9.1-B9geVZFtCvE8ERS7UcvkRz
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      case-insensitive-1.2.0.8@case-insensitive-1.2.0.8-JH9TmxTHpl01TJ0h86Xqcf
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0
+                      dlist-0.8.0.2@dlist-0.8.0.2-6Wnps4GD7EFnRucVzXIFD
+                      ghc-boot-th-8.0.2@ghc-boot-th-8.0.2 ghc-prim-0.5.0.0
+                      hashable-1.2.5.0@hashable-1.2.5.0-F4MWeNuv2sjJRqBd2T5ul4
+                      integer-gmp-1.0.0.1
+                      integer-logarithms-1.0.1@integer-logarithms-1.0.1-IEHCuEd5sG4JjSjlx7m5JF
+                      monad-control-1.0.1.0@monad-control-1.0.1.0-LQwQ0Hi5p0oAccTfTzbfD5
+                      postgresql-libpq-0.9.3.0@postgresql-libpq-0.9.3.0-FVKnfWO5tn29L1HQjaQ0as
+                      postgresql-simple-0.5.2.1@postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH
+                      random-1.1@random-1.1-9tceXaeYIMZ4JrKq20Egog
+                      resource-pool-0.2.3.2@resource-pool-0.2.3.2-DBgmZYXlKazI2NEJ1zhRAp
+                      scientific-0.3.4.10@scientific-0.3.4.10-HRQd1hS6vMV6hvjSlMi8B0
+                      stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
+                      tagged-0.8.5@tagged-0.8.5-1mTloBSoUxv8dqUr8XBGBt
+                      template-haskell-2.11.1.0
+                      text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR
+                      time-1.6.0.1@time-1.6.0.1
+                      time-locale-compat-0.1.1.3@time-locale-compat-0.1.1.3-KZ1jqNx8uhlHjmuPPj6V1Y
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      transformers-base-0.4.4@transformers-base-0.4.4-GKSs0LKukAL8ymq2naFmrH
+                      unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-8AmrySQXjRGF6VciYs51fM
+                      uuid-types-1.0.3@uuid-types-1.0.3-7DISMfTGMIwFRGIC3QM3tK
+                      vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG
+orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-HCAgpBrKCLJ5li8FbfXxE1:Data.Attoparsec.ByteString.Char8
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-HCAgpBrKCLJ5li8FbfXxE1:Data.Attoparsec.Text.Internal
+         base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.5.0@hashable-1.2.5.0-F4MWeNuv2sjJRqBd2T5ul4:Data.Hashable.Generic
+         stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve:Control.Monad.STM
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Unboxed
+family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-HCAgpBrKCLJ5li8FbfXxE1:Data.Attoparsec.Internal.Types
+                         base-4.9.1.0:Control.Applicative base-4.9.1.0:Data.Complex
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Compose
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.Functor.Product base-4.9.1.0:Data.Functor.Sum
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         dlist-0.8.0.2@dlist-0.8.0.2-6Wnps4GD7EFnRucVzXIFD:Data.DList
+                         ghc-boot-th-8.0.2@ghc-boot-th-8.0.2:GHC.LanguageExtensions.Type
+                         monad-control-1.0.1.0@monad-control-1.0.1.0-LQwQ0Hi5p0oAccTfTzbfD5:Control.Monad.Trans.Control
+                         nscotty-0.1.0.0-G3SkqhduKVO4XhmyL2KzU3:Domen
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH:Control.Monad.Primitive
+                         tagged-0.8.5@tagged-0.8.5-1mTloBSoUxv8dqUr8XBGBt:Data.Tagged
+                         template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+                         unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-8AmrySQXjRGF6VciYs51fM:Data.HashMap.Base
+                         unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-8AmrySQXjRGF6VciYs51fM:Data.HashSet
+                         uuid-types-1.0.3@uuid-types-1.0.3-7DISMfTGMIwFRGIC3QM3tK:Data.UUID.Types.Internal
+                         uuid-types-1.0.3@uuid-types-1.0.3-7DISMfTGMIwFRGIC3QM3tK:Data.UUID.Types.Internal.Builder
+                         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector
+                         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Primitive
+                         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Storable
+                         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Unboxed
+                         vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Unboxed.Base
+import  -/  base-4.9.1.0:Control.Applicative e7480cada88fc1f91c2d5e3b6a3f11b0
+import  -/  base-4.9.1.0:Control.Monad a074f462444a9cc98e2a23970e215dab
+import  -/  base-4.9.1.0:Control.Monad.IO.Class 4dedd1241c50db2a5e8998084aaf07d6
+import  -/  base-4.9.1.0:GHC.Base 7c6dca1da85771cbd20bed24c1d3546b
+import  -/  base-4.9.1.0:Prelude 4d7ee35012f77eace89fe02e109def8f
+import  -/  ghc-prim-0.5.0.0:GHC.Types 39f94fe158a9efa70c6b9005a1d10fca
+import  -/  Domen ed844e6058bc55549f7e9bd2ee818f06
+  exports: af0ede96428c916e3751c34a2ca4ab03
+  PhotoStruct cb8b076b794f18cf978b63ff08d5fae0
+  PhotoStruct 0f4832a1a8ff4f51cd1515738f8c7a47
+import  -/  postgresql-simple-0.5.2.1@postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN:Database.PostgreSQL.Simple 5c908db24c1920340df0d1f617340cf8
+import  -/  postgresql-simple-0.5.2.1@postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN:Database.PostgreSQL.Simple.FromRow 3d1a6fc14f09bf54837b4a5c7d29b2fd
+import  -/  postgresql-simple-0.5.2.1@postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN:Database.PostgreSQL.Simple.Internal 9ea8c9e153ddd331e1f0d0fd2b1dc1ec
+import  -/  postgresql-simple-0.5.2.1@postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN:Database.PostgreSQL.Simple.Types 39eac57c12d515907b3c203eee4b1d20
+import  -/  resource-pool-0.2.3.2@resource-pool-0.2.3.2-DBgmZYXlKazI2NEJ1zhRAp:Data.Pool 929c2a411e7c8346bc82347f0dfb862a
+d8b174b7085258bb2518e1d5eab1d1f8
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Db.$trModule2 Db.$trModule1) -}
+c952d91b1e9ef8ede25249db3fb47f51
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Db"#) -}
+0a1d52c4c83a9159226510cdc2b9523e
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "nscotty-0.1.0.0-G3SkqhduKVO4XhmyL2KzU3"#) -}
+f1da0f52bd4c4ec94f9b74733a929149
+  $w$dFromRow ::
+    GHC.Prim.Int#
+    -> GHC.Prim.Addr#
+    -> GHC.ForeignPtr.ForeignPtrContents
+    -> GHC.Prim.Int#
+    -> Database.PostgreSQL.Simple.Internal.Connection
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Database.PostgreSQL.Simple.Ok.Ok
+            (([GHC.Types.Char], [GHC.Types.Char], [GHC.Types.Char],
+              [GHC.Types.Char]),
+             Database.PostgreSQL.LibPQ.Column) #)
+  {- Arity: 6, Strictness: <S,U><S,U><L,U><S,U><L,U(U,U,U)><S,U>,
+     Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Prim.Addr#)
+                   (ww2 :: GHC.ForeignPtr.ForeignPtrContents)
+                   (ww3 :: GHC.Prim.Int#)
+                   (w :: Database.PostgreSQL.Simple.Internal.Connection)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Database.PostgreSQL.Simple.FromRow.$w$cfromRow2
+                   @ [GHC.Types.Char]
+                   @ [GHC.Types.Char]
+                   @ [GHC.Types.Char]
+                   @ [GHC.Types.Char]
+                   Database.PostgreSQL.Simple.FromField.$fFromField[]_$cfromField
+                     `cast`
+                   (Sym (Database.PostgreSQL.Simple.FromField.N:FromField[0]
+                             <[GHC.Types.Char]>_N))
+                   Database.PostgreSQL.Simple.FromField.$fFromField[]_$cfromField
+                     `cast`
+                   (Sym (Database.PostgreSQL.Simple.FromField.N:FromField[0]
+                             <[GHC.Types.Char]>_N))
+                   Database.PostgreSQL.Simple.FromField.$fFromField[]_$cfromField
+                     `cast`
+                   (Sym (Database.PostgreSQL.Simple.FromField.N:FromField[0]
+                             <[GHC.Types.Char]>_N))
+                   Database.PostgreSQL.Simple.FromField.$fFromField[]_$cfromField
+                     `cast`
+                   (Sym (Database.PostgreSQL.Simple.FromField.N:FromField[0]
+                             <[GHC.Types.Char]>_N))
+                   ww
+                   ww1
+                   ww2
+                   ww3
+                   w
+                   w1) -}
+838f024d3a43dd743e69f8a1fc8419b2
+  $wfetchSimple ::
+    Database.PostgreSQL.Simple.FromRow.FromRow r =>
+    GHC.Types.IO Database.PostgreSQL.Simple.Internal.Connection
+    -> (Database.PostgreSQL.Simple.Internal.Connection
+        -> GHC.Types.IO ())
+    -> GHC.Types.Int
+    -> GHC.Types.Int
+    -> Data.Vector.Vector
+         (Data.Pool.LocalPool
+            Database.PostgreSQL.Simple.Internal.Connection)
+    -> Database.PostgreSQL.Simple.Types.Query
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [r] #)
+  {- Arity: 8,
+     Strictness: <L,C(C1(C1(C1(U(U,1*U)))))><L,U><L,1*C1(U)><L,1*U(1*U)><L,1*U(U)><L,U(U,U,U)><L,U(U,U,U,U)><S,U>,
+     Inline: [0],
+     Unfolding: (\ @ r
+                   (w :: Database.PostgreSQL.Simple.FromRow.FromRow r)
+                   (ww :: GHC.Types.IO Database.PostgreSQL.Simple.Internal.Connection)
+                   (ww1 :: Database.PostgreSQL.Simple.Internal.Connection
+                           -> GHC.Types.IO ())
+                   (ww2 :: GHC.Types.Int)
+                   (ww3 :: GHC.Types.Int)
+                   (ww4 :: Data.Vector.Vector
+                             (Data.Pool.LocalPool
+                                Database.PostgreSQL.Simple.Internal.Connection))
+                   (w1 :: Database.PostgreSQL.Simple.Types.Query)
+                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Data.Pool.$w$swithResource
+                   @ Database.PostgreSQL.Simple.Internal.Connection
+                   @ [r]
+                   ww
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   (\ (conn :: Database.PostgreSQL.Simple.Internal.Connection)[OneShot]
+                      (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                    Database.PostgreSQL.Simple.queryWith_1
+                      @ r
+                      w `cast` (Database.PostgreSQL.Simple.FromRow.N:FromRow[0] <r>_N)
+                      conn
+                      w1
+                      eta)
+                     `cast`
+                   (<Database.PostgreSQL.Simple.Internal.Connection>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <[r]>_R))
+                   w2) -}
+4290f8a549820dff661125c643177c86
+  $wgetListPhotos ::
+    GHC.Types.IO Database.PostgreSQL.Simple.Internal.Connection
+    -> (Database.PostgreSQL.Simple.Internal.Connection
+        -> GHC.Types.IO ())
+    -> GHC.Types.Int
+    -> GHC.Types.Int
+    -> Data.Vector.Vector
+         (Data.Pool.LocalPool
+            Database.PostgreSQL.Simple.Internal.Connection)
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [Domen.PhotoStruct] #)
+  {- Arity: 6,
+     Strictness: <L,U><L,1*C1(U)><L,1*U(1*U)><L,1*U(U)><L,U(U,U,U)><S,U>,
+     Inline: [0],
+     Unfolding: (\ (ww :: GHC.Types.IO
+                            Database.PostgreSQL.Simple.Internal.Connection)
+                   (ww1 :: Database.PostgreSQL.Simple.Internal.Connection
+                           -> GHC.Types.IO ())
+                   (ww2 :: GHC.Types.Int)
+                   (ww3 :: GHC.Types.Int)
+                   (ww4 :: Data.Vector.Vector
+                             (Data.Pool.LocalPool
+                                Database.PostgreSQL.Simple.Internal.Connection))
+                   (w :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Data.Pool.$w$swithResource
+                        @ Database.PostgreSQL.Simple.Internal.Connection
+                        @ [(GHC.Base.String, GHC.Base.String, GHC.Base.String,
+                            GHC.Base.String)]
+                        ww
+                        ww1
+                        ww2
+                        ww3
+                        ww4
+                        Db.getListPhotos3
+                          `cast`
+                        (<Database.PostgreSQL.Simple.Internal.Connection>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <[(GHC.Base.String, GHC.Base.String, GHC.Base.String,
+                                          GHC.Base.String)]>_R))
+                        w of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    GHC.Base.map
+                      @ (GHC.Base.String, GHC.Base.String, GHC.Base.String,
+                         GHC.Base.String)
+                      @ Domen.PhotoStruct
+                      Db.getListPhotos2
+                      ipv1 #) }) -}
+2c57a4f7968872414e8d9036fab416c7
+  fetchSimple ::
+    Database.PostgreSQL.Simple.FromRow.FromRow r =>
+    Data.Pool.Pool Database.PostgreSQL.Simple.Internal.Connection
+    -> Database.PostgreSQL.Simple.Types.Query -> GHC.Types.IO [r]
+  {- Arity: 4,
+     Strictness: <L,C(C1(C1(C1(U(U,1*U)))))><S,1*U(U,1*C1(U),1*U(1*U),A,1*U(U),U(U,U,U),A)><L,U(U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Db.fetchSimple1
+                  `cast`
+                (forall (r :: <*>_N).
+                 <Database.PostgreSQL.Simple.FromRow.FromRow r>_R
+                 ->_R <Data.Pool.Pool
+                         Database.PostgreSQL.Simple.Internal.Connection>_R
+                 ->_R <Database.PostgreSQL.Simple.Types.Query>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <[r]>_R)) -}
+c17a7a9d5ab95dceff6caff3c249e851
+  fetchSimple1 ::
+    Database.PostgreSQL.Simple.FromRow.FromRow r =>
+    Data.Pool.Pool Database.PostgreSQL.Simple.Internal.Connection
+    -> Database.PostgreSQL.Simple.Types.Query
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [r] #)
+  {- Arity: 4,
+     Strictness: <L,C(C1(C1(C1(U(U,1*U)))))><S,1*U(U,1*C1(U),1*U(1*U),A,1*U(U),U(U,U,U),A)><L,U(U,U,U,U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ r
+                   (w :: Database.PostgreSQL.Simple.FromRow.FromRow r)
+                   (w1 :: Data.Pool.Pool
+                            Database.PostgreSQL.Simple.Internal.Connection)
+                   (w2 :: Database.PostgreSQL.Simple.Types.Query)
+                   (w3 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w1 of ww { Data.Pool.Pool ww1 ww2 ww3 ww4 ww5 ww6 ww7 ->
+                 Db.$wfetchSimple @ r w ww1 ww2 ww3 ww5 ww6 w2 w3 }) -}
+924c672d5cabc2d1eebda44cb0461f76
+  getListPhotos ::
+    Data.Pool.Pool Database.PostgreSQL.Simple.Internal.Connection
+    -> GHC.Types.IO [Domen.PhotoStruct]
+  {- Arity: 2,
+     Strictness: <S,1*U(U,1*C1(U),1*U(1*U),A,1*U(U),U(U,U,U),A)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Db.getListPhotos1
+                  `cast`
+                (<Data.Pool.Pool Database.PostgreSQL.Simple.Internal.Connection>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <[Domen.PhotoStruct]>_R)) -}
+0b1bef5ed944c6e555decd8ce7726dd6
+  getListPhotos1 ::
+    Data.Pool.Pool Database.PostgreSQL.Simple.Internal.Connection
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [Domen.PhotoStruct] #)
+  {- Arity: 2,
+     Strictness: <S,1*U(U,1*C1(U),1*U(1*U),A,1*U(U),U(U,U,U),A)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Data.Pool.Pool
+                           Database.PostgreSQL.Simple.Internal.Connection)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { Data.Pool.Pool ww1 ww2 ww3 ww4 ww5 ww6 ww7 ->
+                 Db.$wgetListPhotos ww1 ww2 ww3 ww5 ww6 w1 }) -}
+b8194d996dda0a4df070356fe0d5cc43
+  getListPhotos2 ::
+    (GHC.Base.String, GHC.Base.String, GHC.Base.String,
+     GHC.Base.String)
+    -> Domen.PhotoStruct
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U,U,U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (GHC.Base.String, GHC.Base.String, GHC.Base.String,
+                           GHC.Base.String)) ->
+                 case ds of wild { (,,,) userName isrc date descr ->
+                 Domen.PhotoStruct userName isrc date descr }) -}
+a7bcca5f8514f07a307079e96c00eb2a
+  getListPhotos3 ::
+    Database.PostgreSQL.Simple.Internal.Connection
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [(GHC.Base.String, GHC.Base.String, GHC.Base.String,
+            GHC.Base.String)] #)
+  {- Arity: 2,
+     Unfolding: (\ (conn :: Database.PostgreSQL.Simple.Internal.Connection)[OneShot]
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case conn of ww { Database.PostgreSQL.Simple.Internal.Connection ww1 ww2 ww3 ->
+                 Database.PostgreSQL.Simple.$wqueryWith_
+                   @ (GHC.Base.String, GHC.Base.String, GHC.Base.String,
+                      GHC.Base.String)
+                   Db.getListPhotos9
+                     `cast`
+                   (Trans
+                        (<Database.PostgreSQL.Simple.Internal.Row>_R
+                         ->_R Trans
+                                  (<Database.PostgreSQL.LibPQ.Column>_R
+                                   ->_R Trans
+                                            (<Database.PostgreSQL.Simple.Internal.Connection>_R
+                                             ->_R Sym (GHC.Types.N:IO[0]
+                                                           <Database.PostgreSQL.Simple.Ok.Ok
+                                                              (([GHC.Types.Char], [GHC.Types.Char],
+                                                                [GHC.Types.Char], [GHC.Types.Char]),
+                                                               Database.PostgreSQL.LibPQ.Column)>_R))
+                                            (Sym (Database.PostgreSQL.Simple.Internal.N:Conversion[0]
+                                                      <(([GHC.Types.Char], [GHC.Types.Char],
+                                                         [GHC.Types.Char], [GHC.Types.Char]),
+                                                        Database.PostgreSQL.LibPQ.Column)>_R)))
+                                  (Sym (Control.Monad.Trans.State.Strict.N:StateT[0]
+                                            <Database.PostgreSQL.LibPQ.Column>_N
+                                            <Database.PostgreSQL.Simple.Internal.Conversion>_R
+                                            <([GHC.Types.Char], [GHC.Types.Char], [GHC.Types.Char],
+                                              [GHC.Types.Char])>_N)))
+                        (Trans
+                             (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                       <*>_N
+                                       <Database.PostgreSQL.Simple.Internal.Row>_R
+                                       <Control.Monad.Trans.State.Strict.StateT
+                                          Database.PostgreSQL.LibPQ.Column
+                                          Database.PostgreSQL.Simple.Internal.Conversion>_R
+                                       <([GHC.Types.Char], [GHC.Types.Char], [GHC.Types.Char],
+                                         [GHC.Types.Char])>_N))
+                             (Sym (Database.PostgreSQL.Simple.Internal.N:RowParser[0]) <(GHC.Base.String,
+                                                                                         GHC.Base.String,
+                                                                                         GHC.Base.String,
+                                                                                         GHC.Base.String)>_N)))
+                   ww1
+                   ww2
+                   ww3
+                   Db.getListPhotos4
+                     `cast`
+                   (Sym (Database.PostgreSQL.Simple.Types.N:Query[0]))
+                   eta }) -}
+5dc34bf7511f34271489083567fab4fd
+  getListPhotos4 :: Data.ByteString.Internal.ByteString
+  {- Unfolding: (Data.ByteString.Lazy.toStrict Db.getListPhotos5) -}
+10a8f61cae9bda98489575d03fbfc0c7
+  getListPhotos5 :: Data.ByteString.Lazy.Internal.ByteString
+  {- Unfolding: (Data.ByteString.Builder.toLazyByteString
+                   Db.getListPhotos6
+                     `cast`
+                   (Trans
+                        (forall (r :: <*>_N).
+                         <Data.ByteString.Builder.Internal.BufferRange
+                          -> GHC.Types.IO (Data.ByteString.Builder.Internal.BuildSignal r)>_R
+                         ->_R <Data.ByteString.Builder.Internal.BufferRange>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Data.ByteString.Builder.Internal.BuildSignal r>_R))
+                        (Sym (Data.ByteString.Builder.Internal.N:Builder[0])))) -}
+3fd60dc66d2ea11b2e0eeb403bf31c71
+  getListPhotos6 ::
+    (Data.ByteString.Builder.Internal.BufferRange
+     -> GHC.Types.IO (Data.ByteString.Builder.Internal.BuildSignal r))
+    -> Data.ByteString.Builder.Internal.BufferRange
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.ByteString.Builder.Internal.BuildSignal r #)
+  {- Arity: 3,
+     Unfolding: (\ @ r
+                   (w :: Data.ByteString.Builder.Internal.BufferRange
+                         -> GHC.Types.IO (Data.ByteString.Builder.Internal.BuildSignal r))
+                   (w1 :: Data.ByteString.Builder.Internal.BufferRange)
+                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w1 of ww { Data.ByteString.Builder.Internal.BufferRange ww1 ww2 ->
+                 Db.getListPhotos8 @ r Db.getListPhotos7 w ww1 ww2 w2 }) -}
+92165aa24feeeee6e48c09ece0c354bc
+  getListPhotos7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "select user_name, image_src, date, description from user_photo"#) -}
+3d64b7f66911c04e3e2a255087ea8412
+  getListPhotos8 ::
+    [GHC.Types.Char]
+    -> (Data.ByteString.Builder.Internal.BufferRange
+        -> GHC.Types.IO (Data.ByteString.Builder.Internal.BuildSignal r))
+    -> GHC.Prim.Addr#
+    -> GHC.Prim.Addr#
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.ByteString.Builder.Internal.BuildSignal r #)
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S,1*U><L,C(C1(U(U,U)))><S,U><L,U><S,U>, Inline: [0] -}
+ab8e90f05261163e28849944d1a22e2a
+  getListPhotos9 ::
+    Database.PostgreSQL.Simple.Internal.Row
+    -> Database.PostgreSQL.LibPQ.Column
+    -> Database.PostgreSQL.Simple.Internal.Connection
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Database.PostgreSQL.Simple.Ok.Ok
+            (([GHC.Types.Char], [GHC.Types.Char], [GHC.Types.Char],
+              [GHC.Types.Char]),
+             Database.PostgreSQL.LibPQ.Column) #)
+  {- Arity: 4,
+     Strictness: <S(SS(SL)),1*U(U,U(U,U))><S(S),1*U(U)><L,U(U,U,U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: Database.PostgreSQL.Simple.Internal.Row)
+                   (w1 :: Database.PostgreSQL.LibPQ.Column)
+                   (w2 :: Database.PostgreSQL.Simple.Internal.Connection)
+                   (w3 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { Database.PostgreSQL.Simple.Internal.Row ww1 ww2 ->
+                 case ww2
+                        `cast`
+                      (Database.PostgreSQL.LibPQ.N:Result[0]) of ww3 { GHC.ForeignPtr.ForeignPtr ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Trans
+                           (Database.PostgreSQL.LibPQ.N:Column[0])
+                           (Foreign.C.Types.N:CInt[0])) of ww6 { GHC.Int.I32# ww7 ->
+                 Db.$w$dFromRow ww1 ww4 ww5 ww7 w2 w3 } } }) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

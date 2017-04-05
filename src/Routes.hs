@@ -5,49 +5,38 @@ module Routes
     ( routes
     ) where
 
+
 import Lib
+import Domen
+import Db
+
 import Web.Scotty
+
 import qualified Web.Scotty as S
 import Text.Blaze.Html.Renderer.Text
---import qualified Data.Text.Lazy as TL
-import GHC.Generics
-import Data.Aeson (FromJSON, ToJSON)
+--import GHC.Generics
+--import Data.Aeson (FromJSON, ToJSON)
 
-import Data.Monoid ((<>))
-import Data.Monoid (mconcat)
+--import Data.Monoid ((<>))
+--import Data.Monoid (mconcat)
 
-
-data PhotoStruct = PhotoStruct  { 
-                                userName :: String,
-                                image_src :: String,
-                                date :: String,
-                                description :: String
-                                } deriving (Show, Generic)
-instance ToJSON PhotoStruct
-instance FromJSON PhotoStruct
-
-u1 :: PhotoStruct
-u1 = PhotoStruct { userName = "u1", 
-                    image_src = "test1.jpeg",
-                    date = "1213",
-                    description = "descr1"
-                  }
-
-u2 :: PhotoStruct
-u2 = PhotoStruct { userName = "u2", 
-                    image_src = "test2.jpeg",
-                    date = "12",
-                    description = "descr2"
-                  }
-
-allPhoto :: [PhotoStruct]
-allPhoto = [u1, u2]
+--import Database.PostgreSQL.Simple
+--import Database.PostgreSQL.Simple.FromRow
+import Control.Monad.IO.Class
+import Control.Monad
+import Control.Applicative
+import Database.PostgreSQL.Simple
+import Data.Pool(Pool, createPool, withResource)
 
 
 blaze = S.html . renderHtml
 
-routes :: ScottyM ()
-routes = do
+
+sendPhotosList :: [PhotoStruct] -> ActionM ()
+sendPhotosList photos = json photos
+
+routes :: Pool Connection -> ScottyM ()
+routes pool = do
    {- post "/test" $ do
      beam <- param "num"
      blaze . Lib.test $ beam
@@ -57,7 +46,9 @@ routes = do
      file "1.js" -}
 
     get "/method/getPhotos" $ do
-      json allPhoto
+      photos <- liftIO $ getListPhotos pool
+      sendPhotosList photos
+
 
     get "/" $ do 
         showMainPage
@@ -101,9 +92,22 @@ routes = do
         file $ "./src/html/index.html"
       -}
 
---getPhotos :: ActionM ()
---getPhotos = do 
 
+
+
+{-
+dosth :: String
+dosth = do
+        conn <- connect defaultConnectInfo {
+            connectDatabase = "postgres",
+            connectPassword = "iamadminpostgres",
+            connectUser = "postgres",
+            connectPort = 5432,
+            connectHost = "localhost"
+        }
+        xs <- query_ conn "select 2+2"
+        return "123"
+-}
 
 showMainPage :: ActionM ()
 showMainPage = do

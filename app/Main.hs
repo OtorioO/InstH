@@ -1,15 +1,22 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Routes
+
 import Web.Scotty
-import qualified Web.Scotty as S
---import Text.Blaze.Html.Renderer.Text
---import qualified Data.Text.Lazy as TL
+import Database.PostgreSQL.Simple
+import Data.Pool(Pool, createPool, withResource)
 
---import Data.Monoid (mconcat)
 
---blaze = S.html . renderHtml
+newConn :: IO Connection
+newConn = connect defaultConnectInfo {
+			            connectDatabase = "postgres",
+			            connectPassword = "iamadminpostgres",
+			            connectUser = "postgres",
+			            connectPort = 5432,
+			            connectHost = "localhost"
+		        	}
 
 main :: IO ()
 main = do
-  scotty 3000 routes
+  pool <- createPool (newConn) close 1 32 16
+  scotty 3000 (routes pool)
