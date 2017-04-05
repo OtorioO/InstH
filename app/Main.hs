@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Routes
+import Filters
 
 import Web.Scotty
 import Database.PostgreSQL.Simple
@@ -20,3 +21,4 @@ main :: IO ()
 main = do
   pool <- createPool (newConn) close 1 32 16
   scotty 3000 (routes pool)
+
