@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-03-15 21:27:42.284447 UTC
+2017-04-05 11:26:13.032416 UTC
 
 interface main@main:Main 8002
-  interface hash: 8a56bf0aad29a71770ae91639e88cc3e
-  ABI hash: ccba96997b2db9eca88d583d15fca214
-  export-list hash: b15bce7a6f42fdd2d219ae73dfb61679
-  orphan hash: 54a8a2849117a6b08a946de18cce2162
+  interface hash: 22c4dbf1762c5b633538d8fe50a20b4f
+  ABI hash: 0f346902334129f53db8f9b727b10140
+  export-list hash: 78e80a30ccb729c673c8dfcfa0fc80cd
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 98aa8612cd26e7ccd19338f1785ce856
   sig of: Nothing
   used TH splices: False
@@ -14,7 +14,7 @@ interface main@main:Main 8002
 exports:
   Main.main
 module dependencies:
-package dependencies: aeson-1.0.2.1@aeson-1.0.2.1-1PgNnQdZpa7BG8cq9P3bMU
+package dependencies: aeson-1.1.1.0@aeson-1.1.1.0-E0pNGBz5C5k34Vt8d6UT7w
                       appar-0.1.4@appar-0.1.4-DGWHHt2WRn9FI49prcwO9
                       array-0.5.1.1@array-0.5.1.1
                       async-2.1.1@async-2.1.1-4n6HEMPJR2eJK0JpvCfuPK
@@ -47,9 +47,9 @@ package dependencies: aeson-1.0.2.1@aeson-1.0.2.1-1PgNnQdZpa7BG8cq9P3bMU
                       monad-control-1.0.1.0@monad-control-1.0.1.0-LQwQ0Hi5p0oAccTfTzbfD5
                       mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
                       network-2.6.3.1@network-2.6.3.1-ABFtZSq90Z9BfMXNiqgBoe
-                      nscotty-0.1.0.0@nscotty-0.1.0.0-KN6vSIsukDBFJIa4M1NUDm
+                      nscotty-0.1.0.0@nscotty-0.1.0.0-EHALIX3SIUg66PDSqrGOUk
                       postgresql-libpq-0.9.3.0@postgresql-libpq-0.9.3.0-FVKnfWO5tn29L1HQjaQ0as
-                      postgresql-simple-0.5.2.1@postgresql-simple-0.5.2.1-IyhK80miS1YHAsMVPnTTdp
+                      postgresql-simple-0.5.2.1@postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN
                       pretty-1.1.3.3@pretty-1.1.3.3
                       primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH
                       psqueues-0.2.2.3@psqueues-0.2.2.3-GauKnoBPgvr4cpGo1pqheE
@@ -59,7 +59,7 @@ package dependencies: aeson-1.0.2.1@aeson-1.0.2.1-1PgNnQdZpa7BG8cq9P3bMU
                       regex-posix-0.95.2@regex-posix-0.95.2-KQJt29lnRa45d6bFn9XkFO
                       resourcet-1.1.9@resourcet-1.1.9-Ej57FoSD8NQLck5u9CwWz8
                       scientific-0.3.4.10@scientific-0.3.4.10-HRQd1hS6vMV6hvjSlMi8B0
-                      scotty-0.11.0@scotty-0.11.0-2ZyEhTeNYtdJdJkLTxsXjS
+                      scotty-0.11.0@scotty-0.11.0-IqKSW33bKtJ3n2ECJPI415
                       simple-sendfile-0.2.25@simple-sendfile-0.2.25-JJ9zm1wZxYIARxlVa3oQgs
                       stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
                       streaming-commons-0.1.17@streaming-commons-0.1.17-Ec7F62APEFzLqTOvsWpyBa
@@ -78,7 +78,7 @@ package dependencies: aeson-1.0.2.1@aeson-1.0.2.1-1PgNnQdZpa7BG8cq9P3bMU
                       vault-0.3.0.6@vault-0.3.0.6-LaXzEmUAZNyLZeEpsXBRv2
                       vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG
                       wai-3.2.1.1@wai-3.2.1.1-8NcmuA9FbmNFdjqmYFUkuU
-                      wai-extra-3.0.19.1@wai-extra-3.0.19.1-7J2wqhE7e2k5dZ9XFSBfnU
+                      wai-extra-3.0.19.1@wai-extra-3.0.19.1-18tOHbrtfds60IWaL4qqjd
                       warp-3.2.11.1@warp-3.2.11.1-FHI12TXy46i2m3Pr3T0UPD
                       word8-0.1.2@word8-0.1.2-9WDPGCTpW7JJnsiAQavtd1
 orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-HCAgpBrKCLJ5li8FbfXxE1:Data.Attoparsec.ByteString.Char8
@@ -123,11 +123,12 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-HCAgpBrKCLJ5li8
                          iproute-1.7.1@iproute-1.7.1-4HULutk0xITKNjI1pwYrD4:Data.IP.Addr
                          iproute-1.7.1@iproute-1.7.1-4HULutk0xITKNjI1pwYrD4:Data.IP.Range
                          monad-control-1.0.1.0@monad-control-1.0.1.0-LQwQ0Hi5p0oAccTfTzbfD5:Control.Monad.Trans.Control
+                         nscotty-0.1.0.0@nscotty-0.1.0.0-EHALIX3SIUg66PDSqrGOUk:Routes
                          pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
                          pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
                          primitive-0.6.1.0@primitive-0.6.1.0-6AbSTw9JXz141LE5p6LGH:Control.Monad.Primitive
                          resourcet-1.1.9@resourcet-1.1.9-Ej57FoSD8NQLck5u9CwWz8:Control.Monad.Trans.Resource.Internal
-                         scotty-0.11.0@scotty-0.11.0-2ZyEhTeNYtdJdJkLTxsXjS:Web.Scotty.Internal.Types
+                         scotty-0.11.0@scotty-0.11.0-IqKSW33bKtJ3n2ECJPI415:Web.Scotty.Internal.Types
                          tagged-0.8.5@tagged-0.8.5-1mTloBSoUxv8dqUr8XBGBt:Data.Tagged
                          template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
                          text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
@@ -141,22 +142,10 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-HCAgpBrKCLJ5li8
                          vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Storable
                          vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-LMwQhhnXj8U3T5Bm1JFxG:Data.Vector.Unboxed.Base
-import  -/  base-4.9.1.0:Data.Monoid e95821d43e7664ca37ee448c60a358a1
-import  -/  base-4.9.1.0:GHC.Base 7c6dca1da85771cbd20bed24c1d3546b
 import  -/  base-4.9.1.0:Prelude 4d7ee35012f77eace89fe02e109def8f
-import  -/  blaze-html-0.8.1.3@blaze-html-0.8.1.3-4x5sR7CihaZBuBa398ibiy:Text.Blaze.Html.Renderer.Text 60deb205fcf824c05e728c9ea9fa54aa
 import  -/  ghc-prim-0.5.0.0:GHC.Types 39f94fe158a9efa70c6b9005a1d10fca
-import  -/  nscotty-0.1.0.0@nscotty-0.1.0.0-KN6vSIsukDBFJIa4M1NUDm:Lib adb1b00db979d513d89ed2544bf7bffe
-import  -/  scotty-0.11.0@scotty-0.11.0-2ZyEhTeNYtdJdJkLTxsXjS:Web.Scotty 40ec4a41aea2d887711ec8345a2fc10f
-c3f1164d535cac65b6a752db50475242
-  $s$fParsable[] :: Web.Scotty.Action.Parsable [GHC.Types.Char]
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ [GHC.Types.Char]
-                  Web.Scotty.Action.$fParsableChar_$cparseParamList
-                  (Web.Scotty.Action.$fParsable[]_$cparseParamList
-                     @ GHC.Types.Char
-                     Web.Scotty.Action.$fParsableChar) -}
+import  -/  nscotty-0.1.0.0@nscotty-0.1.0.0-EHALIX3SIUg66PDSqrGOUk:Routes 2a2a4fc676b5f21fc4598a24830e54c7
+import  -/  scotty-0.11.0@scotty-0.11.0-IqKSW33bKtJ3n2ECJPI415:Web.Scotty ece68fcbf53a3523ad6e6c343126c920
 d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -169,7 +158,7 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-8d9e3c7a283aee6e316a21717eecd957
+bc21d6587ec3293146e564ea2ddb7bfa
   main :: GHC.Types.IO ()
   {- Unfolding: (Web.Scotty.Trans.scottyOptsT
                    @ GHC.Types.IO
@@ -177,9 +166,9 @@ d6831ef04cb9301b090dfae6f7bb7ec7
                    @ Data.Text.Internal.Lazy.Text
                    GHC.Base.$fMonadIO
                    Control.Monad.IO.Class.$fMonadIOIO
-                   Main.main35
-                   (GHC.Base.id @ (GHC.Types.IO Network.Wai.Internal.Response))
                    Main.main1
+                   (GHC.Base.id @ (GHC.Types.IO Network.Wai.Internal.Response))
+                   Routes.routes1
                      `cast`
                    (Trans
                         (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
@@ -189,838 +178,15 @@ d6831ef04cb9301b090dfae6f7bb7ec7
                                   <()>_N))
                         (Sym (Web.Scotty.Internal.Types.N:ScottyT[0]
                                   <Data.Text.Internal.Lazy.Text>_N <GHC.Types.IO>_N) <()>_N))) -}
-2c1797a934c3b49fb555afd702ca4967
-  main1 ::
-    Web.Scotty.Internal.Types.ScottyState
-      Data.Text.Internal.Lazy.Text GHC.Types.IO
-    -> Data.Functor.Identity.Identity
-         ((),
-          Web.Scotty.Internal.Types.ScottyState
-            Data.Text.Internal.Lazy.Text GHC.Types.IO)
-  {- Arity: 1,
-     Unfolding: (\ (s1 :: Web.Scotty.Internal.Types.ScottyState
-                            Data.Text.Internal.Lazy.Text GHC.Types.IO)[OneShot] ->
-                 (Main.main34
-                    Network.HTTP.Types.Method.GET
-                    Main.main31
-                    Main.main29
-                      `cast`
-                    (Trans
-                         (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                   <*>_N
-                                   <Web.Scotty.Internal.Types.ActionEnv>_R
-                                   <Control.Monad.Trans.State.Lazy.StateT
-                                      Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO>_R
-                                   <Data.Either.Either
-                                      (Web.Scotty.Internal.Types.ActionError
-                                         Data.Text.Internal.Lazy.Text)
-                                      ()>_N))
-                         (Trans
-                              (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                        <Web.Scotty.Internal.Types.ActionError
-                                           Data.Text.Internal.Lazy.Text>_N
-                                        <Control.Monad.Trans.Reader.ReaderT
-                                           Web.Scotty.Internal.Types.ActionEnv
-                                           (Control.Monad.Trans.State.Lazy.StateT
-                                              Web.Scotty.Internal.Types.ScottyResponse
-                                              GHC.Types.IO)>_R
-                                        <()>_N))
-                              (Sym (Web.Scotty.Internal.Types.N:ActionT[0]
-                                        <Data.Text.Internal.Lazy.Text>_N
-                                        <GHC.Types.IO>_R) <()>_N))))
-                   `cast`
-                 (Trans
-                      (Web.Scotty.Internal.Types.N:ScottyT[0]
-                           <Data.Text.Internal.Lazy.Text>_N <GHC.Types.IO>_N <()>_N)
-                      (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                           <Web.Scotty.Internal.Types.ScottyState
-                              Data.Text.Internal.Lazy.Text GHC.Types.IO>_N
-                           <Data.Functor.Identity.Identity>_R
-                           <()>_N))
-                   (case ((Main.main34
-                             Network.HTTP.Types.Method.GET
-                             Main.main26
-                             Main.main24
-                               `cast`
-                             (Trans
-                                  (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                            <*>_N
-                                            <Web.Scotty.Internal.Types.ActionEnv>_R
-                                            <Control.Monad.Trans.State.Lazy.StateT
-                                               Web.Scotty.Internal.Types.ScottyResponse
-                                               GHC.Types.IO>_R
-                                            <Data.Either.Either
-                                               (Web.Scotty.Internal.Types.ActionError
-                                                  Data.Text.Internal.Lazy.Text)
-                                               ()>_N))
-                                  (Trans
-                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                                 <Web.Scotty.Internal.Types.ActionError
-                                                    Data.Text.Internal.Lazy.Text>_N
-                                                 <Control.Monad.Trans.Reader.ReaderT
-                                                    Web.Scotty.Internal.Types.ActionEnv
-                                                    (Control.Monad.Trans.State.Lazy.StateT
-                                                       Web.Scotty.Internal.Types.ScottyResponse
-                                                       GHC.Types.IO)>_R
-                                                 <()>_N))
-                                       (Sym (Web.Scotty.Internal.Types.N:ActionT[0]
-                                                 <Data.Text.Internal.Lazy.Text>_N
-                                                 <GHC.Types.IO>_R) <()>_N))))
-                            `cast`
-                          (Trans
-                               (Web.Scotty.Internal.Types.N:ScottyT[0]
-                                    <Data.Text.Internal.Lazy.Text>_N <GHC.Types.IO>_N <()>_N)
-                               (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                    <Web.Scotty.Internal.Types.ScottyState
-                                       Data.Text.Internal.Lazy.Text GHC.Types.IO>_N
-                                    <Data.Functor.Identity.Identity>_R
-                                    <()>_N))
-                            (case ((Main.main34
-                                      Network.HTTP.Types.Method.GET
-                                      Main.main21
-                                      Main.main19
-                                        `cast`
-                                      (Trans
-                                           (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                                     <*>_N
-                                                     <Web.Scotty.Internal.Types.ActionEnv>_R
-                                                     <Control.Monad.Trans.State.Lazy.StateT
-                                                        Web.Scotty.Internal.Types.ScottyResponse
-                                                        GHC.Types.IO>_R
-                                                     <Data.Either.Either
-                                                        (Web.Scotty.Internal.Types.ActionError
-                                                           Data.Text.Internal.Lazy.Text)
-                                                        ()>_N))
-                                           (Trans
-                                                (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                                          <Web.Scotty.Internal.Types.ActionError
-                                                             Data.Text.Internal.Lazy.Text>_N
-                                                          <Control.Monad.Trans.Reader.ReaderT
-                                                             Web.Scotty.Internal.Types.ActionEnv
-                                                             (Control.Monad.Trans.State.Lazy.StateT
-                                                                Web.Scotty.Internal.Types.ScottyResponse
-                                                                GHC.Types.IO)>_R
-                                                          <()>_N))
-                                                (Sym (Web.Scotty.Internal.Types.N:ActionT[0]
-                                                          <Data.Text.Internal.Lazy.Text>_N
-                                                          <GHC.Types.IO>_R) <()>_N))))
-                                     `cast`
-                                   (Trans
-                                        (Web.Scotty.Internal.Types.N:ScottyT[0]
-                                             <Data.Text.Internal.Lazy.Text>_N
-                                             <GHC.Types.IO>_N <()>_N)
-                                        (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                             <Web.Scotty.Internal.Types.ScottyState
-                                                Data.Text.Internal.Lazy.Text GHC.Types.IO>_N
-                                             <Data.Functor.Identity.Identity>_R
-                                             <()>_N))
-                                     (case ((Main.main34
-                                               Network.HTTP.Types.Method.GET
-                                               Main.main16
-                                               Main.main14
-                                                 `cast`
-                                               (Trans
-                                                    (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                                              <*>_N
-                                                              <Web.Scotty.Internal.Types.ActionEnv>_R
-                                                              <Control.Monad.Trans.State.Lazy.StateT
-                                                                 Web.Scotty.Internal.Types.ScottyResponse
-                                                                 GHC.Types.IO>_R
-                                                              <Data.Either.Either
-                                                                 (Web.Scotty.Internal.Types.ActionError
-                                                                    Data.Text.Internal.Lazy.Text)
-                                                                 ()>_N))
-                                                    (Trans
-                                                         (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                                                   <Web.Scotty.Internal.Types.ActionError
-                                                                      Data.Text.Internal.Lazy.Text>_N
-                                                                   <Control.Monad.Trans.Reader.ReaderT
-                                                                      Web.Scotty.Internal.Types.ActionEnv
-                                                                      (Control.Monad.Trans.State.Lazy.StateT
-                                                                         Web.Scotty.Internal.Types.ScottyResponse
-                                                                         GHC.Types.IO)>_R
-                                                                   <()>_N))
-                                                         (Sym (Web.Scotty.Internal.Types.N:ActionT[0]
-                                                                   <Data.Text.Internal.Lazy.Text>_N
-                                                                   <GHC.Types.IO>_R) <()>_N))))
-                                              `cast`
-                                            (Trans
-                                                 (Web.Scotty.Internal.Types.N:ScottyT[0]
-                                                      <Data.Text.Internal.Lazy.Text>_N
-                                                      <GHC.Types.IO>_N <()>_N)
-                                                 (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                                      <Web.Scotty.Internal.Types.ScottyState
-                                                         Data.Text.Internal.Lazy.Text
-                                                         GHC.Types.IO>_N
-                                                      <Data.Functor.Identity.Identity>_R
-                                                      <()>_N))
-                                              (case ((Main.main34
-                                                        Network.HTTP.Types.Method.GET
-                                                        Main.main11
-                                                        Main.main8
-                                                          `cast`
-                                                        (Trans
-                                                             (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                                                       <*>_N
-                                                                       <Web.Scotty.Internal.Types.ActionEnv>_R
-                                                                       <Control.Monad.Trans.State.Lazy.StateT
-                                                                          Web.Scotty.Internal.Types.ScottyResponse
-                                                                          GHC.Types.IO>_R
-                                                                       <Data.Either.Either
-                                                                          (Web.Scotty.Internal.Types.ActionError
-                                                                             Data.Text.Internal.Lazy.Text)
-                                                                          ()>_N))
-                                                             (Trans
-                                                                  (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                                                            <Web.Scotty.Internal.Types.ActionError
-                                                                               Data.Text.Internal.Lazy.Text>_N
-                                                                            <Control.Monad.Trans.Reader.ReaderT
-                                                                               Web.Scotty.Internal.Types.ActionEnv
-                                                                               (Control.Monad.Trans.State.Lazy.StateT
-                                                                                  Web.Scotty.Internal.Types.ScottyResponse
-                                                                                  GHC.Types.IO)>_R
-                                                                            <()>_N))
-                                                                  (Sym (Web.Scotty.Internal.Types.N:ActionT[0]
-                                                                            <Data.Text.Internal.Lazy.Text>_N
-                                                                            <GHC.Types.IO>_R) <()>_N))))
-                                                       `cast`
-                                                     (Trans
-                                                          (Web.Scotty.Internal.Types.N:ScottyT[0]
-                                                               <Data.Text.Internal.Lazy.Text>_N
-                                                               <GHC.Types.IO>_N <()>_N)
-                                                          (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                                               <Web.Scotty.Internal.Types.ScottyState
-                                                                  Data.Text.Internal.Lazy.Text
-                                                                  GHC.Types.IO>_N
-                                                               <Data.Functor.Identity.Identity>_R
-                                                               <()>_N))
-                                                       (case ((Main.main34
-                                                                 Network.HTTP.Types.Method.GET
-                                                                 Main.main5
-                                                                 Main.main2
-                                                                   `cast`
-                                                                 (Trans
-                                                                      (<Web.Scotty.Internal.Types.ActionEnv>_R
-                                                                       ->_R Trans
-                                                                                (<Web.Scotty.Internal.Types.ScottyResponse>_R
-                                                                                 ->_R Sym (GHC.Types.N:IO[0]
-                                                                                               <(Data.Either.Either
-                                                                                                   (Web.Scotty.Internal.Types.ActionError
-                                                                                                      Data.Text.Internal.Lazy.Text)
-                                                                                                   (),
-                                                                                                 Web.Scotty.Internal.Types.ScottyResponse)>_R))
-                                                                                (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                                                                          <Web.Scotty.Internal.Types.ScottyResponse>_N
-                                                                                          <GHC.Types.IO>_R
-                                                                                          <Data.Either.Either
-                                                                                             (Web.Scotty.Internal.Types.ActionError
-                                                                                                Data.Text.Internal.Lazy.Text)
-                                                                                             ()>_N)))
-                                                                      (Trans
-                                                                           (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                                                                     <*>_N
-                                                                                     <Web.Scotty.Internal.Types.ActionEnv>_R
-                                                                                     <Control.Monad.Trans.State.Lazy.StateT
-                                                                                        Web.Scotty.Internal.Types.ScottyResponse
-                                                                                        GHC.Types.IO>_R
-                                                                                     <Data.Either.Either
-                                                                                        (Web.Scotty.Internal.Types.ActionError
-                                                                                           Data.Text.Internal.Lazy.Text)
-                                                                                        ()>_N))
-                                                                           (Trans
-                                                                                (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                                                                          <Web.Scotty.Internal.Types.ActionError
-                                                                                             Data.Text.Internal.Lazy.Text>_N
-                                                                                          <Control.Monad.Trans.Reader.ReaderT
-                                                                                             Web.Scotty.Internal.Types.ActionEnv
-                                                                                             (Control.Monad.Trans.State.Lazy.StateT
-                                                                                                Web.Scotty.Internal.Types.ScottyResponse
-                                                                                                GHC.Types.IO)>_R
-                                                                                          <()>_N))
-                                                                                (Sym (Web.Scotty.Internal.Types.N:ActionT[0]
-                                                                                          <Data.Text.Internal.Lazy.Text>_N
-                                                                                          <GHC.Types.IO>_R) <()>_N)))))
-                                                                `cast`
-                                                              (Trans
-                                                                   (Web.Scotty.Internal.Types.N:ScottyT[0]
-                                                                        <Data.Text.Internal.Lazy.Text>_N
-                                                                        <GHC.Types.IO>_N <()>_N)
-                                                                   (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                                                        <Web.Scotty.Internal.Types.ScottyState
-                                                                           Data.Text.Internal.Lazy.Text
-                                                                           GHC.Types.IO>_N
-                                                                        <Data.Functor.Identity.Identity>_R
-                                                                        <()>_N))
-                                                                s1)
-                                                               `cast`
-                                                             (Data.Functor.Identity.N:Identity[0]
-                                                                  <((),
-                                                                    Web.Scotty.Internal.Types.ScottyState
-                                                                      Data.Text.Internal.Lazy.Text
-                                                                      GHC.Types.IO)>_R) of wild { (,) a1 s' ->
-                                                        s' }))
-                                                      `cast`
-                                                    (Data.Functor.Identity.N:Identity[0]
-                                                         <((),
-                                                           Web.Scotty.Internal.Types.ScottyState
-                                                             Data.Text.Internal.Lazy.Text
-                                                             GHC.Types.IO)>_R) of wild { (,) a1 s' ->
-                                               s' }))
-                                             `cast`
-                                           (Data.Functor.Identity.N:Identity[0]
-                                                <((),
-                                                  Web.Scotty.Internal.Types.ScottyState
-                                                    Data.Text.Internal.Lazy.Text
-                                                    GHC.Types.IO)>_R) of wild { (,) a1 s' ->
-                                      s' }))
-                                    `cast`
-                                  (Data.Functor.Identity.N:Identity[0]
-                                       <((),
-                                         Web.Scotty.Internal.Types.ScottyState
-                                           Data.Text.Internal.Lazy.Text
-                                           GHC.Types.IO)>_R) of wild { (,) a1 s' ->
-                             s' }))
-                           `cast`
-                         (Data.Functor.Identity.N:Identity[0]
-                              <((),
-                                Web.Scotty.Internal.Types.ScottyState
-                                  Data.Text.Internal.Lazy.Text
-                                  GHC.Types.IO)>_R) of wild { (,) a1 s' ->
-                    s' })) -}
-00dd23dc435cc04f801d084becfd45a3
-  main10 :: Data.Text.Internal.Lazy.Text
-  {- Unfolding: (Data.Text.Lazy.unpackCString# "w"#) -}
-39581ceed4130ba87956ee891f5fe576
-  main11 :: Web.Scotty.Internal.Types.RoutePattern
-  {- Unfolding: (Web.Scotty.Internal.Types.Capture Main.main12) -}
-57f4e5949f2b18891357992ccead6d76
-  main12 :: Data.Text.Internal.Lazy.Text
-  {- Unfolding: (case GHC.Base.map
-                        @ GHC.Types.Char
-                        @ GHC.Types.Char
-                        Data.Text.Internal.safe
-                        Main.main13 of dt { DEFAULT ->
-                 Web.Scotty.Internal.Types.$fIsStringRoutePattern_outer dt }) -}
-4187bf3d1701a61e15b966c1f920b13b
-  main13 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "/:w"#) -}
-46f2fc2e022613790d3148594274138c
-  main14 ::
-    Web.Scotty.Internal.Types.ActionEnv
-    -> Control.Monad.Trans.State.Lazy.StateT
-         Web.Scotty.Internal.Types.ScottyResponse
-         GHC.Types.IO
-         (Data.Either.Either
-            (Web.Scotty.Internal.Types.ActionError
-               Data.Text.Internal.Lazy.Text)
-            ())
-  {- Arity: 1,
-     Unfolding: (\ (w4 :: Web.Scotty.Internal.Types.ActionEnv) ->
-                 let {
-                   m1 :: Control.Monad.Trans.State.Lazy.StateT
-                           Web.Scotty.Internal.Types.ScottyResponse
-                           GHC.Types.IO
-                           (Data.Either.Either
-                              (Web.Scotty.Internal.Types.ActionError
-                                 Data.Text.Internal.Lazy.Text)
-                              GHC.IO.FilePath)
-                   = Main.main_w2
-                       `cast`
-                     (Trans
-                          (Web.Scotty.Internal.Types.N:ActionT[0]
-                               <Data.Text.Internal.Lazy.Text>_N
-                               <GHC.Types.IO>_R <GHC.IO.FilePath>_N)
-                          (Trans
-                               (Control.Monad.Trans.Except.N:ExceptT[0]
-                                    <Web.Scotty.Internal.Types.ActionError
-                                       Data.Text.Internal.Lazy.Text>_N
-                                    <Control.Monad.Trans.Reader.ReaderT
-                                       Web.Scotty.Internal.Types.ActionEnv
-                                       (Control.Monad.Trans.State.Lazy.StateT
-                                          Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO)>_R
-                                    <GHC.IO.FilePath>_N)
-                               (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                    <*>_N
-                                    <Web.Scotty.Internal.Types.ActionEnv>_R
-                                    <Control.Monad.Trans.State.Lazy.StateT
-                                       Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO>_R
-                                    <Data.Either.Either
-                                       (Web.Scotty.Internal.Types.ActionError
-                                          Data.Text.Internal.Lazy.Text)
-                                       GHC.IO.FilePath>_N)))
-                       w4
-                 } in
-                 (\ (s1 :: Web.Scotty.Internal.Types.ScottyResponse)
-                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                  case (m1
-                          `cast`
-                        (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                             <Web.Scotty.Internal.Types.ScottyResponse>_N
-                             <GHC.Types.IO>_R
-                             <Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath>_N)
-                          s1)
-                         `cast`
-                       (GHC.Types.N:IO[0]
-                            <(Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath,
-                              Web.Scotty.Internal.Types.ScottyResponse)>_R)
-                         s of ds1 { (#,#) ipv ipv1 ->
-                  case ipv1 of wild { (,) a1 s' ->
-                  case a1 of wild1 {
-                    Data.Either.Left e1
-                    -> (# ipv,
-                          (Data.Either.Left
-                             @ (Web.Scotty.Internal.Types.ActionError
-                                  Data.Text.Internal.Lazy.Text)
-                             @ ()
-                             e1,
-                           s') #)
-                    Data.Either.Right x
-                    -> (# ipv,
-                          (Main.main4,
-                           case s' of wild2 { Web.Scotty.Internal.Types.SR ds ds2 ds3 ->
-                           Web.Scotty.Internal.Types.SR
-                             ds
-                             ds2
-                             (Web.Scotty.Internal.Types.ContentFile
-                                (GHC.Base.++ @ GHC.Types.Char Main.main15 x)) }) #) } } })
-                   `cast`
-                 (Trans
-                      (<Web.Scotty.Internal.Types.ScottyResponse>_R
-                       ->_R Sym (GHC.Types.N:IO[0]
-                                     <(Data.Either.Either
-                                         (Web.Scotty.Internal.Types.ActionError
-                                            Data.Text.Internal.Lazy.Text)
-                                         (),
-                                       Web.Scotty.Internal.Types.ScottyResponse)>_R))
-                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                <Web.Scotty.Internal.Types.ScottyResponse>_N
-                                <GHC.Types.IO>_R
-                                <Data.Either.Either
-                                   (Web.Scotty.Internal.Types.ActionError
-                                      Data.Text.Internal.Lazy.Text)
-                                   ()>_N)))) -}
-67a3f933ae9dd509e4dfba9fbdd61605
-  main15 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "./src/html/js/"#) -}
-a81833d41f8e51859c62d45a9117bc6d
-  main16 :: Web.Scotty.Internal.Types.RoutePattern
-  {- Unfolding: (Web.Scotty.Internal.Types.Capture Main.main17) -}
-bedd2ac999eb27f3a6b3b8ac1417b21b
-  main17 :: Data.Text.Internal.Lazy.Text
-  {- Unfolding: (case GHC.Base.map
-                        @ GHC.Types.Char
-                        @ GHC.Types.Char
-                        Data.Text.Internal.safe
-                        Main.main18 of dt { DEFAULT ->
-                 Web.Scotty.Internal.Types.$fIsStringRoutePattern_outer dt }) -}
-b75c61f4a308e403169547987d94bac2
-  main18 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "/js/:w"#) -}
-784de9aa0ba535473d30b7b4750db384
-  main19 ::
-    Web.Scotty.Internal.Types.ActionEnv
-    -> Control.Monad.Trans.State.Lazy.StateT
-         Web.Scotty.Internal.Types.ScottyResponse
-         GHC.Types.IO
-         (Data.Either.Either
-            (Web.Scotty.Internal.Types.ActionError
-               Data.Text.Internal.Lazy.Text)
-            ())
-  {- Arity: 1,
-     Unfolding: (\ (w4 :: Web.Scotty.Internal.Types.ActionEnv) ->
-                 let {
-                   m1 :: Control.Monad.Trans.State.Lazy.StateT
-                           Web.Scotty.Internal.Types.ScottyResponse
-                           GHC.Types.IO
-                           (Data.Either.Either
-                              (Web.Scotty.Internal.Types.ActionError
-                                 Data.Text.Internal.Lazy.Text)
-                              GHC.IO.FilePath)
-                   = Main.main_w2
-                       `cast`
-                     (Trans
-                          (Web.Scotty.Internal.Types.N:ActionT[0]
-                               <Data.Text.Internal.Lazy.Text>_N
-                               <GHC.Types.IO>_R <GHC.IO.FilePath>_N)
-                          (Trans
-                               (Control.Monad.Trans.Except.N:ExceptT[0]
-                                    <Web.Scotty.Internal.Types.ActionError
-                                       Data.Text.Internal.Lazy.Text>_N
-                                    <Control.Monad.Trans.Reader.ReaderT
-                                       Web.Scotty.Internal.Types.ActionEnv
-                                       (Control.Monad.Trans.State.Lazy.StateT
-                                          Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO)>_R
-                                    <GHC.IO.FilePath>_N)
-                               (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                    <*>_N
-                                    <Web.Scotty.Internal.Types.ActionEnv>_R
-                                    <Control.Monad.Trans.State.Lazy.StateT
-                                       Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO>_R
-                                    <Data.Either.Either
-                                       (Web.Scotty.Internal.Types.ActionError
-                                          Data.Text.Internal.Lazy.Text)
-                                       GHC.IO.FilePath>_N)))
-                       w4
-                 } in
-                 (\ (s1 :: Web.Scotty.Internal.Types.ScottyResponse)
-                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                  case (m1
-                          `cast`
-                        (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                             <Web.Scotty.Internal.Types.ScottyResponse>_N
-                             <GHC.Types.IO>_R
-                             <Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath>_N)
-                          s1)
-                         `cast`
-                       (GHC.Types.N:IO[0]
-                            <(Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath,
-                              Web.Scotty.Internal.Types.ScottyResponse)>_R)
-                         s of ds1 { (#,#) ipv ipv1 ->
-                  case ipv1 of wild { (,) a1 s' ->
-                  case a1 of wild1 {
-                    Data.Either.Left e1
-                    -> (# ipv,
-                          (Data.Either.Left
-                             @ (Web.Scotty.Internal.Types.ActionError
-                                  Data.Text.Internal.Lazy.Text)
-                             @ ()
-                             e1,
-                           s') #)
-                    Data.Either.Right x
-                    -> (# ipv,
-                          (Main.main4,
-                           case s' of wild2 { Web.Scotty.Internal.Types.SR ds ds2 ds3 ->
-                           Web.Scotty.Internal.Types.SR
-                             ds
-                             ds2
-                             (Web.Scotty.Internal.Types.ContentFile
-                                (GHC.Base.++ @ GHC.Types.Char Main.main20 x)) }) #) } } })
-                   `cast`
-                 (Trans
-                      (<Web.Scotty.Internal.Types.ScottyResponse>_R
-                       ->_R Sym (GHC.Types.N:IO[0]
-                                     <(Data.Either.Either
-                                         (Web.Scotty.Internal.Types.ActionError
-                                            Data.Text.Internal.Lazy.Text)
-                                         (),
-                                       Web.Scotty.Internal.Types.ScottyResponse)>_R))
-                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                <Web.Scotty.Internal.Types.ScottyResponse>_N
-                                <GHC.Types.IO>_R
-                                <Data.Either.Either
-                                   (Web.Scotty.Internal.Types.ActionError
-                                      Data.Text.Internal.Lazy.Text)
-                                   ()>_N)))) -}
-84fa37e92342f14b6267eb8590ddd5c4
-  main2 ::
-    Web.Scotty.Internal.Types.ActionEnv
-    -> Web.Scotty.Internal.Types.ScottyResponse
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          (Data.Either.Either
-             (Web.Scotty.Internal.Types.ActionError
-                Data.Text.Internal.Lazy.Text)
-             (),
-           Web.Scotty.Internal.Types.ScottyResponse) #)
-  {- Arity: 3,
-     Unfolding: (\ (w2 :: Web.Scotty.Internal.Types.ActionEnv)
-                   (w3 :: Web.Scotty.Internal.Types.ScottyResponse)
-                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 (# s,
-                    (Main.main4,
-                     case w3 of wild { Web.Scotty.Internal.Types.SR ds ds1 ds2 ->
-                     Web.Scotty.Internal.Types.SR ds ds1 Main.main3 }) #)) -}
-5eabe7a55c5c02053345b53ab57863dc
-  main20 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "./src/html/img/"#) -}
-915bd947c479f148a1fd428f50fe9d06
-  main21 :: Web.Scotty.Internal.Types.RoutePattern
-  {- Unfolding: (Web.Scotty.Internal.Types.Capture Main.main22) -}
-253560bd72bd54ed6e56423a289ae7cd
-  main22 :: Data.Text.Internal.Lazy.Text
-  {- Unfolding: (case GHC.Base.map
-                        @ GHC.Types.Char
-                        @ GHC.Types.Char
-                        Data.Text.Internal.safe
-                        Main.main23 of dt { DEFAULT ->
-                 Web.Scotty.Internal.Types.$fIsStringRoutePattern_outer dt }) -}
-cf56d3d10b7269710554c051d460bdc3
-  main23 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "/img/:w"#) -}
-8cfe88641f797c8bec1379112d5d8c71
-  main24 ::
-    Web.Scotty.Internal.Types.ActionEnv
-    -> Control.Monad.Trans.State.Lazy.StateT
-         Web.Scotty.Internal.Types.ScottyResponse
-         GHC.Types.IO
-         (Data.Either.Either
-            (Web.Scotty.Internal.Types.ActionError
-               Data.Text.Internal.Lazy.Text)
-            ())
-  {- Arity: 1,
-     Unfolding: (\ (w4 :: Web.Scotty.Internal.Types.ActionEnv) ->
-                 let {
-                   m1 :: Control.Monad.Trans.State.Lazy.StateT
-                           Web.Scotty.Internal.Types.ScottyResponse
-                           GHC.Types.IO
-                           (Data.Either.Either
-                              (Web.Scotty.Internal.Types.ActionError
-                                 Data.Text.Internal.Lazy.Text)
-                              GHC.IO.FilePath)
-                   = Main.main_w2
-                       `cast`
-                     (Trans
-                          (Web.Scotty.Internal.Types.N:ActionT[0]
-                               <Data.Text.Internal.Lazy.Text>_N
-                               <GHC.Types.IO>_R <GHC.IO.FilePath>_N)
-                          (Trans
-                               (Control.Monad.Trans.Except.N:ExceptT[0]
-                                    <Web.Scotty.Internal.Types.ActionError
-                                       Data.Text.Internal.Lazy.Text>_N
-                                    <Control.Monad.Trans.Reader.ReaderT
-                                       Web.Scotty.Internal.Types.ActionEnv
-                                       (Control.Monad.Trans.State.Lazy.StateT
-                                          Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO)>_R
-                                    <GHC.IO.FilePath>_N)
-                               (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                    <*>_N
-                                    <Web.Scotty.Internal.Types.ActionEnv>_R
-                                    <Control.Monad.Trans.State.Lazy.StateT
-                                       Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO>_R
-                                    <Data.Either.Either
-                                       (Web.Scotty.Internal.Types.ActionError
-                                          Data.Text.Internal.Lazy.Text)
-                                       GHC.IO.FilePath>_N)))
-                       w4
-                 } in
-                 (\ (s1 :: Web.Scotty.Internal.Types.ScottyResponse)
-                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                  case (m1
-                          `cast`
-                        (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                             <Web.Scotty.Internal.Types.ScottyResponse>_N
-                             <GHC.Types.IO>_R
-                             <Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath>_N)
-                          s1)
-                         `cast`
-                       (GHC.Types.N:IO[0]
-                            <(Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath,
-                              Web.Scotty.Internal.Types.ScottyResponse)>_R)
-                         s of ds1 { (#,#) ipv ipv1 ->
-                  case ipv1 of wild { (,) a1 s' ->
-                  case a1 of wild1 {
-                    Data.Either.Left e1
-                    -> (# ipv,
-                          (Data.Either.Left
-                             @ (Web.Scotty.Internal.Types.ActionError
-                                  Data.Text.Internal.Lazy.Text)
-                             @ ()
-                             e1,
-                           s') #)
-                    Data.Either.Right x
-                    -> (# ipv,
-                          (Main.main4,
-                           case s' of wild2 { Web.Scotty.Internal.Types.SR ds ds2 ds3 ->
-                           Web.Scotty.Internal.Types.SR
-                             ds
-                             ds2
-                             (Web.Scotty.Internal.Types.ContentFile
-                                (GHC.Base.++ @ GHC.Types.Char Main.main25 x)) }) #) } } })
-                   `cast`
-                 (Trans
-                      (<Web.Scotty.Internal.Types.ScottyResponse>_R
-                       ->_R Sym (GHC.Types.N:IO[0]
-                                     <(Data.Either.Either
-                                         (Web.Scotty.Internal.Types.ActionError
-                                            Data.Text.Internal.Lazy.Text)
-                                         (),
-                                       Web.Scotty.Internal.Types.ScottyResponse)>_R))
-                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                <Web.Scotty.Internal.Types.ScottyResponse>_N
-                                <GHC.Types.IO>_R
-                                <Data.Either.Either
-                                   (Web.Scotty.Internal.Types.ActionError
-                                      Data.Text.Internal.Lazy.Text)
-                                   ()>_N)))) -}
-6c361538d59fec68b3e459889d9d4a7c
-  main25 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "./src/html/fonts/"#) -}
-ec78f5c33e2932e5ac8dc10624a52c9b
-  main26 :: Web.Scotty.Internal.Types.RoutePattern
-  {- Unfolding: (Web.Scotty.Internal.Types.Capture Main.main27) -}
-e4aeefd985de241cca00ba7f51a06782
-  main27 :: Data.Text.Internal.Lazy.Text
-  {- Unfolding: (case GHC.Base.map
-                        @ GHC.Types.Char
-                        @ GHC.Types.Char
-                        Data.Text.Internal.safe
-                        Main.main28 of dt { DEFAULT ->
-                 Web.Scotty.Internal.Types.$fIsStringRoutePattern_outer dt }) -}
-61c5291d1dd46f97c24f174a7c39d257
-  main28 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "/fonts/:w"#) -}
-552496136b4c1a665b4002948cba9888
-  main29 ::
-    Web.Scotty.Internal.Types.ActionEnv
-    -> Control.Monad.Trans.State.Lazy.StateT
-         Web.Scotty.Internal.Types.ScottyResponse
-         GHC.Types.IO
-         (Data.Either.Either
-            (Web.Scotty.Internal.Types.ActionError
-               Data.Text.Internal.Lazy.Text)
-            ())
-  {- Arity: 1,
-     Unfolding: (\ (w4 :: Web.Scotty.Internal.Types.ActionEnv) ->
-                 let {
-                   m1 :: Control.Monad.Trans.State.Lazy.StateT
-                           Web.Scotty.Internal.Types.ScottyResponse
-                           GHC.Types.IO
-                           (Data.Either.Either
-                              (Web.Scotty.Internal.Types.ActionError
-                                 Data.Text.Internal.Lazy.Text)
-                              GHC.IO.FilePath)
-                   = Main.main_w2
-                       `cast`
-                     (Trans
-                          (Web.Scotty.Internal.Types.N:ActionT[0]
-                               <Data.Text.Internal.Lazy.Text>_N
-                               <GHC.Types.IO>_R <GHC.IO.FilePath>_N)
-                          (Trans
-                               (Control.Monad.Trans.Except.N:ExceptT[0]
-                                    <Web.Scotty.Internal.Types.ActionError
-                                       Data.Text.Internal.Lazy.Text>_N
-                                    <Control.Monad.Trans.Reader.ReaderT
-                                       Web.Scotty.Internal.Types.ActionEnv
-                                       (Control.Monad.Trans.State.Lazy.StateT
-                                          Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO)>_R
-                                    <GHC.IO.FilePath>_N)
-                               (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                    <*>_N
-                                    <Web.Scotty.Internal.Types.ActionEnv>_R
-                                    <Control.Monad.Trans.State.Lazy.StateT
-                                       Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO>_R
-                                    <Data.Either.Either
-                                       (Web.Scotty.Internal.Types.ActionError
-                                          Data.Text.Internal.Lazy.Text)
-                                       GHC.IO.FilePath>_N)))
-                       w4
-                 } in
-                 (\ (s1 :: Web.Scotty.Internal.Types.ScottyResponse)
-                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                  case (m1
-                          `cast`
-                        (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                             <Web.Scotty.Internal.Types.ScottyResponse>_N
-                             <GHC.Types.IO>_R
-                             <Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath>_N)
-                          s1)
-                         `cast`
-                       (GHC.Types.N:IO[0]
-                            <(Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath,
-                              Web.Scotty.Internal.Types.ScottyResponse)>_R)
-                         s of ds1 { (#,#) ipv ipv1 ->
-                  case ipv1 of wild { (,) a1 s' ->
-                  case a1 of wild1 {
-                    Data.Either.Left e1
-                    -> (# ipv,
-                          (Data.Either.Left
-                             @ (Web.Scotty.Internal.Types.ActionError
-                                  Data.Text.Internal.Lazy.Text)
-                             @ ()
-                             e1,
-                           s') #)
-                    Data.Either.Right x
-                    -> (# ipv,
-                          (Main.main4,
-                           case s' of wild2 { Web.Scotty.Internal.Types.SR ds ds2 ds3 ->
-                           Web.Scotty.Internal.Types.SR
-                             ds
-                             ds2
-                             (Web.Scotty.Internal.Types.ContentFile
-                                (GHC.Base.++ @ GHC.Types.Char Main.main30 x)) }) #) } } })
-                   `cast`
-                 (Trans
-                      (<Web.Scotty.Internal.Types.ScottyResponse>_R
-                       ->_R Sym (GHC.Types.N:IO[0]
-                                     <(Data.Either.Either
-                                         (Web.Scotty.Internal.Types.ActionError
-                                            Data.Text.Internal.Lazy.Text)
-                                         (),
-                                       Web.Scotty.Internal.Types.ScottyResponse)>_R))
-                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                <Web.Scotty.Internal.Types.ScottyResponse>_N
-                                <GHC.Types.IO>_R
-                                <Data.Either.Either
-                                   (Web.Scotty.Internal.Types.ActionError
-                                      Data.Text.Internal.Lazy.Text)
-                                   ()>_N)))) -}
-19ddd608bb646154575a7b11fe601752
-  main3 :: Web.Scotty.Internal.Types.Content
-  {- Unfolding: (Web.Scotty.Internal.Types.ContentFile
-                   Main.main_w1) -}
-6440c38ab88f5176704f324c2762f054
-  main30 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "./src/html/css/"#) -}
-cc6c40f9bb3380fbe39ab6b087606c11
-  main31 :: Web.Scotty.Internal.Types.RoutePattern
-  {- Unfolding: (Web.Scotty.Internal.Types.Capture Main.main32) -}
-74598874f4122df20929db952561716f
-  main32 :: Data.Text.Internal.Lazy.Text
-  {- Unfolding: (case GHC.Base.map
-                        @ GHC.Types.Char
-                        @ GHC.Types.Char
-                        Data.Text.Internal.safe
-                        Main.main33 of dt { DEFAULT ->
-                 Web.Scotty.Internal.Types.$fIsStringRoutePattern_outer dt }) -}
-9c11bc75ba6aa6ced01fd2aa33467687
-  main33 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "/css/:w"#) -}
-689d48c30c31cd0b4ac5af25c7c37601
-  main34 ::
-    Network.HTTP.Types.Method.StdMethod
-    -> Web.Scotty.Internal.Types.RoutePattern
-    -> Web.Scotty.Internal.Types.ActionT
-         Data.Text.Internal.Lazy.Text GHC.Types.IO ()
-    -> Web.Scotty.Internal.Types.ScottyT
-         Data.Text.Internal.Lazy.Text GHC.Types.IO ()
-  {- Unfolding: (Web.Scotty.Route.addroute
-                   @ Data.Text.Internal.Lazy.Text
-                   @ GHC.Types.IO
-                   Web.Scotty.Internal.Types.$fScottyErrorText
-                   Control.Monad.IO.Class.$fMonadIOIO) -}
-92ac9b3407af99c2ace6a3b1a768eaec
-  main35 :: Web.Scotty.Internal.Types.Options
+0bfe7e270ce24f4a80a5c8f261c9d961
+  main1 :: Web.Scotty.Internal.Types.Options
   {- Unfolding: (Web.Scotty.Internal.Types.Options
                    Web.Scotty.Internal.Types.$fDefaultOptions3
-                   Main.main36) -}
-3a7d1687103af50c6e85ceafe5a4d67d
-  main36 :: Network.Wai.Handler.Warp.Settings.Settings
+                   Main.main2) -}
+fcb65e76dfb6f1f2fce856109ee1213f
+  main2 :: Network.Wai.Handler.Warp.Settings.Settings
   {- Unfolding: (Network.Wai.Handler.Warp.Settings.Settings
-                   Main.main37
+                   Main.main3
                    Network.Wai.Handler.Warp.Settings.defaultSettings16
                    Network.Wai.Handler.Warp.Settings.defaultOnException1
                      `cast`
@@ -1070,165 +236,15 @@ cc6c40f9bb3380fbe39ab6b087606c11
                     ->_R <GHC.Integer.Type.Integer>_R
                     ->_R Sym (GHC.Types.N:IO[0] <()>_R))
                    (GHC.Base.Nothing @ GHC.Types.Int)) -}
-bfcb14087db52152cfe3b5e836f8f543
-  main37 :: GHC.Types.Int
+46eca1bb497df3d5bd485ec57a67f6ba
+  main3 :: GHC.Types.Int
   {- HasNoCafRefs, Unfolding: (GHC.Types.I# 3000#) -}
-506ca6163276077fe63095330439d392
-  main38 ::
+0d78f836d99bad2a468f6131116d195d
+  main4 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1,
      Unfolding: (GHC.TopHandler.runMainIO1 @ () Main.main) -}
-2c09d918949ad682ad7ad38d2e665f78
-  main4 ::
-    Data.Either.Either
-      (Web.Scotty.Internal.Types.ActionError
-         Data.Text.Internal.Lazy.Text)
-      ()
-  {- HasNoCafRefs,
-     Unfolding: (Data.Either.Right
-                   @ (Web.Scotty.Internal.Types.ActionError
-                        Data.Text.Internal.Lazy.Text)
-                   @ ()
-                   GHC.Tuple.()) -}
-6b5f167d05ff1656454fe68298981683
-  main5 :: Web.Scotty.Internal.Types.RoutePattern
-  {- Unfolding: (Web.Scotty.Internal.Types.Capture Main.main6) -}
-77353921a353bed1342eb699c2ed54da
-  main6 :: Data.Text.Internal.Lazy.Text
-  {- Unfolding: (case GHC.Base.map
-                        @ GHC.Types.Char
-                        @ GHC.Types.Char
-                        Data.Text.Internal.safe
-                        Main.main7 of dt { DEFAULT ->
-                 Web.Scotty.Internal.Types.$fIsStringRoutePattern_outer dt }) -}
-9783e1de6d6bed9a35beee8f25ec0b31
-  main7 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "/"#) -}
-b63f9ddba007115ec7835322ed37f295
-  main8 ::
-    Web.Scotty.Internal.Types.ActionEnv
-    -> Control.Monad.Trans.State.Lazy.StateT
-         Web.Scotty.Internal.Types.ScottyResponse
-         GHC.Types.IO
-         (Data.Either.Either
-            (Web.Scotty.Internal.Types.ActionError
-               Data.Text.Internal.Lazy.Text)
-            ())
-  {- Arity: 1,
-     Unfolding: (\ (w4 :: Web.Scotty.Internal.Types.ActionEnv) ->
-                 let {
-                   m1 :: Control.Monad.Trans.State.Lazy.StateT
-                           Web.Scotty.Internal.Types.ScottyResponse
-                           GHC.Types.IO
-                           (Data.Either.Either
-                              (Web.Scotty.Internal.Types.ActionError
-                                 Data.Text.Internal.Lazy.Text)
-                              GHC.IO.FilePath)
-                   = Main.main_w2
-                       `cast`
-                     (Trans
-                          (Web.Scotty.Internal.Types.N:ActionT[0]
-                               <Data.Text.Internal.Lazy.Text>_N
-                               <GHC.Types.IO>_R <GHC.IO.FilePath>_N)
-                          (Trans
-                               (Control.Monad.Trans.Except.N:ExceptT[0]
-                                    <Web.Scotty.Internal.Types.ActionError
-                                       Data.Text.Internal.Lazy.Text>_N
-                                    <Control.Monad.Trans.Reader.ReaderT
-                                       Web.Scotty.Internal.Types.ActionEnv
-                                       (Control.Monad.Trans.State.Lazy.StateT
-                                          Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO)>_R
-                                    <GHC.IO.FilePath>_N)
-                               (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                    <*>_N
-                                    <Web.Scotty.Internal.Types.ActionEnv>_R
-                                    <Control.Monad.Trans.State.Lazy.StateT
-                                       Web.Scotty.Internal.Types.ScottyResponse GHC.Types.IO>_R
-                                    <Data.Either.Either
-                                       (Web.Scotty.Internal.Types.ActionError
-                                          Data.Text.Internal.Lazy.Text)
-                                       GHC.IO.FilePath>_N)))
-                       w4
-                 } in
-                 (\ (s1 :: Web.Scotty.Internal.Types.ScottyResponse)
-                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                  case (m1
-                          `cast`
-                        (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                             <Web.Scotty.Internal.Types.ScottyResponse>_N
-                             <GHC.Types.IO>_R
-                             <Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath>_N)
-                          s1)
-                         `cast`
-                       (GHC.Types.N:IO[0]
-                            <(Data.Either.Either
-                                (Web.Scotty.Internal.Types.ActionError
-                                   Data.Text.Internal.Lazy.Text)
-                                GHC.IO.FilePath,
-                              Web.Scotty.Internal.Types.ScottyResponse)>_R)
-                         s of ds1 { (#,#) ipv ipv1 ->
-                  case ipv1 of wild { (,) a1 s' ->
-                  case a1 of wild1 {
-                    Data.Either.Left e1
-                    -> (# ipv,
-                          (Data.Either.Left
-                             @ (Web.Scotty.Internal.Types.ActionError
-                                  Data.Text.Internal.Lazy.Text)
-                             @ ()
-                             e1,
-                           s') #)
-                    Data.Either.Right x
-                    -> (# ipv,
-                          (Main.main4,
-                           case s' of wild2 { Web.Scotty.Internal.Types.SR ds ds2 ds3 ->
-                           Web.Scotty.Internal.Types.SR
-                             ds
-                             ds2
-                             (Web.Scotty.Internal.Types.ContentFile
-                                (GHC.Base.++ @ GHC.Types.Char Main.main9 x)) }) #) } } })
-                   `cast`
-                 (Trans
-                      (<Web.Scotty.Internal.Types.ScottyResponse>_R
-                       ->_R Sym (GHC.Types.N:IO[0]
-                                     <(Data.Either.Either
-                                         (Web.Scotty.Internal.Types.ActionError
-                                            Data.Text.Internal.Lazy.Text)
-                                         (),
-                                       Web.Scotty.Internal.Types.ScottyResponse)>_R))
-                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                <Web.Scotty.Internal.Types.ScottyResponse>_N
-                                <GHC.Types.IO>_R
-                                <Data.Either.Either
-                                   (Web.Scotty.Internal.Types.ActionError
-                                      Data.Text.Internal.Lazy.Text)
-                                   ()>_N)))) -}
-698244e3a2e3654ebb23110b2d217260
-  main9 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "./src/html/"#) -}
-ec7039e411ee834954d77f5a70ffd9e1
-  main_w1 :: GHC.IO.FilePath
-  {- Unfolding: (GHC.CString.unpackCString#
-                   "./src/html/index.html"#) -}
-84d4f8f150ff57fe62a8a12362433b57
-  main_w2 ::
-    Web.Scotty.Internal.Types.ActionT
-      Data.Text.Internal.Lazy.Text GHC.Types.IO GHC.IO.FilePath
-  {- Unfolding: (Web.Scotty.Action.param
-                   @ GHC.IO.FilePath
-                   @ Data.Text.Internal.Lazy.Text
-                   @ GHC.Types.IO
-                   Main.$s$fParsable[]
-                   Web.Scotty.Internal.Types.$fScottyErrorText
-                   GHC.Base.$fMonadIO
-                   Main.main10) -}
-"SPEC/Main $fParsable[] @ Char" [ALWAYS] forall ($dParsable :: Web.Scotty.Action.Parsable
-                                                                 GHC.Types.Char)
-  Web.Scotty.Action.$fParsable[] @ GHC.Types.Char $dParsable
-  = Main.$s$fParsable[]
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

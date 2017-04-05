@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Our Instagram</title>
+	<meta charset="utf-8">
+	<meta name="author" content="pixelhint.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+
+	<header>
+		<div class="logo">
+			<a href="index.html"><img src="img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
+		</div><!-- end logo -->
+
+		<div id="menu_icon"></div>
+		<nav>
+			<ul>
+				<li><a href="test.html" class="selected">Портфолио</a></li>
+				<li><a href="#">Загрузить фотографию</a></li>
+			</ul>
+		</nav><!-- end navigation menu -->
+
+		<div class="footer clearfix">
+			<ul class="social clearfix">
+				
+				
+				
+			</ul><!-- end social -->
+
+			<div class="rights">
+				<p>Copyright © БПШ</p>
+			</div><!-- end rights -->
+		</div ><!-- end footer -->
+	</header><!-- end header -->
+		
+		<section class="main clearfix">
+
+		<section class="content">
+			<h1>Загрузка фотографии</h1>
+			<form action="#" method="post" enctype="multipart/form-data">
+					<div class="fileform">
+						<div id="fileformlabel"></div>
+						<div class="selectbutton">Обзор</div>
+							<input type="file" name="upload" id="upload" onchange="getName(this.value);" />
+					</div>
+	        		<br>
+	        		<textarea rows="4" cols="50" name="description" placeholder="Введите ваш комментарий к фотографии:" class="message" required></textarea>
+					<input type="submit" class="button" name="submit" class="btn btn-default" value="Сохранить">
+				</form>	<br><br>
+		</section>
+
+	<script>function getName (str){
+    if (str.lastIndexOf('\\')){
+        var i = str.lastIndexOf('\\')+1;
+    }
+    else{
+        var i = str.lastIndexOf('/')+1;
+    }						
+    var filename = str.slice(i);			
+    var uploaded = document.getElementById("fileformlabel");
+    uploaded.innerHTML = filename;
+}</script>
+</body>
+</html>

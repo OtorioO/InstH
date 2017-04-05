@@ -7,6 +7,13 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 
+/* package aeson-1.1.1.0 */
+#define VERSION_aeson "1.1.1.0"
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 1)
+
 /* package base-4.9.1.0 */
 #define VERSION_base "4.9.1.0"
 #define MIN_VERSION_base(major1,major2,minor) (\
@@ -91,7 +98,7 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "nscotty-0.1.0.0-KN6vSIsukDBFJIa4M1NUDm"
+#define CURRENT_COMPONENT_ID "nscotty-0.1.0.0-EHALIX3SIUg66PDSqrGOUk"
 
-#define CURRENT_PACKAGE_KEY "nscotty-0.1.0.0-KN6vSIsukDBFJIa4M1NUDm"
+#define CURRENT_PACKAGE_KEY "nscotty-0.1.0.0-EHALIX3SIUg66PDSqrGOUk"
 
