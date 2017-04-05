@@ -35,6 +35,13 @@
   (major1) == 0 && (major2) <  5 || \
   (major1) == 0 && (major2) == 5 && (minor) <= 2)
 
+/* package resource-pool-0.2.3.2 */
+#define VERSION_resource_pool "0.2.3.2"
+#define MIN_VERSION_resource_pool(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 3)
+
 /* package scotty-0.11.0 */
 #define VERSION_scotty "0.11.0"
 #define MIN_VERSION_scotty(major1,major2,minor) (\
@@ -98,7 +105,7 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "nscotty-0.1.0.0-EHALIX3SIUg66PDSqrGOUk"
+#define CURRENT_COMPONENT_ID "nscotty-0.1.0.0-G3SkqhduKVO4XhmyL2KzU3"
 
-#define CURRENT_PACKAGE_KEY "nscotty-0.1.0.0-EHALIX3SIUg66PDSqrGOUk"
+#define CURRENT_PACKAGE_KEY "nscotty-0.1.0.0-G3SkqhduKVO4XhmyL2KzU3"
 
