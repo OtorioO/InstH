@@ -8,5 +8,5 @@ Preprocessing library scotty-0.11.0...
 [5 of 6] Compiling Web.Scotty.Trans ( Web/Scotty/Trans.hs, .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/Web/Scotty/Trans.o )
 [6 of 6] Compiling Web.Scotty       ( Web/Scotty.hs, .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/Web/Scotty.o )
 Installing library in
-/home/android/Documents/Programs/git/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/scotty-0.11.0-IqKSW33bKtJ3n2ECJPI415
+/home/android/Documents/insth/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/scotty-0.11.0-IqKSW33bKtJ3n2ECJPI415
 Registering scotty-0.11.0...

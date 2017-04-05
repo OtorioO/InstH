@@ -31,5 +31,5 @@ Preprocessing library http2-1.6.3...
 [28 of 29] Compiling Network.HPACK.HeaderBlock ( Network/HPACK/HeaderBlock.hs, .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/Network/HPACK/HeaderBlock.o )
 [29 of 29] Compiling Network.HPACK    ( Network/HPACK.hs, .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/Network/HPACK.o )
 Installing library in
-/home/android/Documents/Programs/git/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/http2-1.6.3-AztirFAAzjluWi6d9XlAh
+/home/android/Documents/insth/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/http2-1.6.3-AztirFAAzjluWi6d9XlAh
 Registering http2-1.6.3...

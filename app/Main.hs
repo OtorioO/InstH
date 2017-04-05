@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Routes
+import Filters
 import Web.Scotty
 import qualified Web.Scotty as S
 --import Text.Blaze.Html.Renderer.Text

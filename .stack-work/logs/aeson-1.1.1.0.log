@@ -28,5 +28,5 @@ Data/Aeson/Types/FromJSON.hs:467:3: warning: [-Winline-rule-shadowing]
 [20 of 21] Compiling Data.Aeson.Encode ( Data/Aeson/Encode.hs, .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/Data/Aeson/Encode.o )
 [21 of 21] Compiling Data.Aeson.TH    ( Data/Aeson/TH.hs, .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/Data/Aeson/TH.o )
 Installing library in
-/home/android/Documents/Programs/git/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/aeson-1.1.1.0-E0pNGBz5C5k34Vt8d6UT7w
+/home/android/Documents/insth/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/aeson-1.1.1.0-E0pNGBz5C5k34Vt8d6UT7w
 Registering aeson-1.1.1.0...

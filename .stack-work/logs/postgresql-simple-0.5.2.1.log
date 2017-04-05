@@ -84,5 +84,5 @@ src/Database/PostgreSQL/Simple/Copy.hs:81:5: warning: [-Wincomplete-patterns]
             CopyBoth
             SingleTuple
 Installing library in
-/home/android/Documents/Programs/git/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN
+/home/android/Documents/insth/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/postgresql-simple-0.5.2.1-1Xk32y59FYx1mbemlKETGN
 Registering postgresql-simple-0.5.2.1...

@@ -26,7 +26,7 @@ Preprocessing executable 'aeson-pretty' for aeson-pretty-0.8.2...
 [2 of 2] Compiling Main             ( cli-tool/Main.hs, .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/aeson-pretty/aeson-pretty-tmp/Main.o )
 Linking .stack-work/dist/i386-linux/Cabal-1.24.2.0/build/aeson-pretty/aeson-pretty ...
 Installing library in
-/home/android/Documents/Programs/git/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/aeson-pretty-0.8.2-Kx6L5ALouqP4bgR8ugrwQW
+/home/android/Documents/insth/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/lib/i386-linux-ghc-8.0.2/aeson-pretty-0.8.2-Kx6L5ALouqP4bgR8ugrwQW
 Installing executable(s) in
-/home/android/Documents/Programs/git/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/bin
+/home/android/Documents/insth/InstH/.stack-work/install/i386-linux/lts-8.4/8.0.2/bin
 Registering aeson-pretty-0.8.2...
