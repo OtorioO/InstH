@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Routes
-import Filters
+
 
 import Web.Scotty
 import Database.PostgreSQL.Simple
