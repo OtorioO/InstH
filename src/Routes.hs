@@ -27,7 +27,9 @@ import Control.Monad
 import Control.Applicative
 import Database.PostgreSQL.Simple
 import Data.Pool(Pool, createPool, withResource)
+import qualified Data.Text.Lazy as T
 
+import           Network.Wai.Parse (FileInfo)
 
 blaze = S.html . renderHtml
 
@@ -49,6 +51,10 @@ routes pool = do
       photos <- liftIO $ getListPhotos pool
       sendPhotosList photos
 
+    post "/method/uploadPhoto" $ do
+        us <- files
+        --ofile <- (head us)
+        text (T.pack (show (length us)))
 
     get "/" $ do 
         showMainPage
