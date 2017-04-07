@@ -13,11 +13,11 @@ import Db
 import Web.Scotty
 
 import qualified Web.Scotty as S
-import Text.Blaze.Html.Renderer.Text
+--import Text.Blaze.Html.Renderer.Text
 --import GHC.Generics
 --import Data.Aeson (FromJSON, ToJSON)
 
---import Data.Monoid ((<>))
+import Data.Monoid ((<>))
 --import Data.Monoid (mconcat)
 
 --import Database.PostgreSQL.Simple
@@ -28,15 +28,35 @@ import Control.Applicative
 import Database.PostgreSQL.Simple
 import Data.Pool(Pool, createPool, withResource)
 import qualified Data.Text.Lazy as T
+import qualified Data.List as LI
 import Data.Maybe
+import qualified Data.ByteString as B
+import qualified Data.ByteString.Lazy as L
+import Network.Wai.Parse (FileInfo (..))
 
-import           Network.Wai.Parse (FileInfo)
+--blaze = S.html . renderHtml
 
-blaze = S.html . renderHtml
 
+pathToFiles = "/home/android/Documents/Programs/"
 
 sendPhotosList :: [PhotoStruct] -> ActionM ()
 sendPhotosList photos = json photos
+
+
+getFileInfo :: [File] -> FileInfo L.ByteString
+getFileInfo file = snd (LI.head file)
+
+getFileName :: FileInfo L.ByteString -> B.ByteString
+getFileName  (FileInfo fileName _ _) = fileName
+
+getFileType :: FileInfo L.ByteString  -> B.ByteString
+getFileType (FileInfo _ fileType _) = fileType
+ 
+getFileContent :: FileInfo L.ByteString -> L.ByteString
+getFileContent (FileInfo _ _ content) = content
+
+
+
 
 routes :: Pool Connection -> ScottyM ()
 routes pool = do
@@ -57,22 +77,21 @@ routes pool = do
       sendPhotosList photos
 
     post "/method/uploadPhoto" $ do
-        us <- files
-        --ofile <- (head us)
-        text (T.pack (show (length us)))
-
-
+      us <- files
+        --text (T.pack (show (length us)))
+       -- text . T.pack $(show (getFileInfo (L.head us)))
+      text $ (T.pack(show (getFileName (getFileInfo us))) <> T.pack(show (getFileType (getFileInfo us))))
+      --liftAndCatchIO (L.writeFile (pathToFiles ++ "test.png") (getFileContent (getFileInfo us))) 
 
     get "/wall" $ do
-     --user <- param "user"
      file $ "./src/html/userpage.html"
+
+    get "/" $ do 
+      showMainPage
 
     get "/:w" $ do
       word <- param "w"
       file $ mconcat ["./src/html/", word]
-
-    get "/" $ do 
-      showMainPage
 
     get "/js/:w" $ do
      word <- param "w"
@@ -105,22 +124,6 @@ routes pool = do
         file $ "./src/html/index.html"
       -}
 
-
-
-
-{-
-dosth :: String
-dosth = do
-        conn <- connect defaultConnectInfo {
-            connectDatabase = "postgres",
-            connectPassword = "iamadminpostgres",
-            connectUser = "postgres",
-            connectPort = 5432,
-            connectHost = "localhost"
-        }
-        xs <- query_ conn "select 2+2"
-        return "123"
--}
 
 showMainPage :: ActionM ()
 showMainPage = do
