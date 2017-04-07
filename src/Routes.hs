@@ -28,6 +28,7 @@ import Control.Applicative
 import Database.PostgreSQL.Simple
 import Data.Pool(Pool, createPool, withResource)
 import qualified Data.Text.Lazy as T
+import Data.Maybe
 
 import           Network.Wai.Parse (FileInfo)
 
@@ -46,7 +47,11 @@ routes pool = do
      blaze . Lib.test $ -1
     get "/1.js" $
      file "1.js" -}
-
+    get "/method/getPhotos" $ do
+      uN <- param "userName" `rescue` (const next )
+      photos <- liftIO $ getListPhotosWithName pool uN
+      sendPhotosList photos
+      
     get "/method/getPhotos" $ do
       photos <- liftIO $ getListPhotos pool
       sendPhotosList photos
