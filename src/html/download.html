@@ -59,20 +59,17 @@
 				<div class="ajax-respond"></div>
 				<script>
 				    var files;
- 				    var d = new Date().toString('dd.MM.yyyy');
- 					var form = new FormData();
+
 
 					$('input[type=file]').change(function(){
 					    files = this.files;
-						form.append("userName", document.getElementById('author').value);
-						form.append("date", d);
-						form.append("description", document.getElementById('description').value);
-						form.append("photoFile", files[0]);
 					});
 
 					$('.submit.button').click(function( event ){
 					    event.stopPropagation(); // Остановка происходящего
 					    event.preventDefault();  // Полная остановка 
+					    var form = new FormData();
+					    var d = new Date().toString('dd.MM.yyyy');
 					    form.append("userName", document.getElementById('author').value);
 						form.append("date", d);
 						form.append("description", document.getElementById('description').value);
