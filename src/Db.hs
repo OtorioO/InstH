@@ -25,6 +25,7 @@ getListPhotosWithName pool uName = do
   res <- fetch pool (Only uName) ("select user_name, image_src, date, description from user_photo where user_name = ?") :: IO [(String, String, String, String)]
   return $ map (\(userName, isrc, date, descr) -> PhotoStruct userName isrc date descr) res
 
+
 fetchSimple :: FromRow r => Pool Connection -> Query -> IO [r]
 fetchSimple pool sql = withResource pool retrieve
        where retrieve conn = query_ conn sql

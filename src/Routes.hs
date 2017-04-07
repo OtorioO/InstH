@@ -61,16 +61,18 @@ routes pool = do
         --ofile <- (head us)
         text (T.pack (show (length us)))
 
-    get "/" $ do 
-        showMainPage
-     
-    get "/:w" $ do
-     word <- param "w"
-     file $ mconcat ["./src/html/", word]
 
-    get "/u/:user" $ do
+
+    get "/wall" $ do
      --user <- param "user"
      file $ "./src/html/userpage.html"
+
+    get "/:w" $ do
+      word <- param "w"
+      file $ mconcat ["./src/html/", word]
+
+    get "/" $ do 
+      showMainPage
 
     get "/js/:w" $ do
      word <- param "w"
