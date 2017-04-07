@@ -14,13 +14,13 @@
 
 	<header>
 		<div class="logo">
-			<a href="../index.html"><img src="../img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
+			<a href="../wall"><img src="../img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
 		</div><!-- end logo -->
 
 		<div id="menu_icon"></div>
 		<nav>
 			<ul>
-				<li><a href="../userpage.html" class="selected">Стена</a></li>
+				<li><a href="../wall" class="selected">Стена</a></li>
 				<li><a href="../download.html">Загрузить фотографию</a></li>
 			</ul>
 		</nav><!-- end navigation menu -->
@@ -36,6 +36,15 @@
 			</div><!-- end rights -->
 		</div ><!-- end footer -->
 		<script>
+		function sendReq(){
+			var t = document.getElementById("author").value;
+			if(t == ''){
+				$.get("../method/getPhotos",{}, onAjaxSuccess, 'json');
+			}
+			else{
+				$.get("../method/getPhotos",{userName: t}, onAjaxSuccess, 'json');
+			}		
+		}
 		function onAjaxSuccess(data)
 				{
 				  // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
@@ -51,19 +60,14 @@
 		</script>
 	</header><!-- end header -->
 	<div class="main clearfix">
-			<form>
+			</script>
+			<form onkeypress="if(event.keyCode == 13){sendReq(); return false;} ">
   				<br><input id="author" type="text" placeholder="Автор" value="">
   				<input style="float:right;" type="button" id="btn" value="Искать">
 			</form>
 			<script>
 			$('#btn').on('click', function () {
-					var t = document.getElementById("author").value;
-					if(t == ''){
-						$.get("../method/getPhotos",{}, onAjaxSuccess, 'json');
-					}
-					else{
-						$.get("../method/getPhotos",{userName: t}, onAjaxSuccess, 'json');
-					}					
+					sendReq();			
 			}); 
 		</script>
 	</div>

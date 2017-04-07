@@ -9,19 +9,20 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/date.js"></script>
 </head>
 <body>
 
 	<header>
 		<div class="logo">
-			<a href="index.html"><img src="img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
+			<a href="../wall"><img src="img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
 		</div><!-- end logo -->
 
 		<div id="menu_icon"></div>
 		<nav>
 			<ul>
-				<li><a href="userpage.html" class="selected">Стена</a></li>
-				<li><a href="#">Загрузить фотографию</a></li>
+				<li><a href="../wall">Стена</a></li>
+				<li><a href="#" class="selected">Загрузить фотографию</a></li>
 			</ul>
 		</nav><!-- end navigation menu -->
 
@@ -46,37 +47,36 @@
 					<div class="fileform">
 						<div id="fileformlabel"></div>
 						<div class="selectbutton">Обзор</div>
-							<input type="file" accept="image/*" name="upload" id="upload" onchange="getName(this.value);" />
+						<input type="file" accept="image/*" name="upload" id="upload" onchange="getName(this.value);" />
 					</div>
 	        		<br>
-	        		<textarea rows="4" cols="50" name="description" placeholder="Введите ваш комментарий к фотографии:" class="message" required></textarea>
-	        		<a href="#" class="submit button">Загрузить фото</a>
+	        		<input type="text" name="author" placeholder="Автор" id="author" class="txtt"/>
+	        		<textarea rows="4" cols="50" name="description" id="description" placeholder="Введите ваш комментарий к фотографии:" class="message" required></textarea>
+	        		<div style="float:right;"><a style="text-decoration: none;" href="#" class="submit button">Загрузить фото</a></div>
 				<!--	<input type="submit" class="button" name="submit" class="btn btn-default" value="Сохранить">
 				</form>  -->
  					<br><br>
 				<div class="ajax-respond"></div>
 				<script>
 				    var files;
- 				//	var jsonO;
- 				//	var jsonStr;
+ 				    var d = new Date()).toString('dd.MM.yyyy');
  					var form = new FormData();
 
 					$('input[type=file]').change(function(){
 					    files = this.files;
-					   /* jsonO = {userName : "u1",
-								 date : "123",
-								 description : "3432",
-								}
-						jsonStr = JSON.stringify(jsonO);*/
-						form.append("userName", "u1");
-						form.append("date", "123");
-						form.append("description", "213");
+						form.append("userName", document.getElementById('author').value);
+						form.append("date", d);
+						form.append("description", document.getElementById('description').value);
 						form.append("photoFile", files[0]);
 					});
 
 					$('.submit.button').click(function( event ){
 					    event.stopPropagation(); // Остановка происходящего
 					    event.preventDefault();  // Полная остановка 
+					    form.append("userName", document.getElementById('author').value);
+						form.append("date", d);
+						form.append("description", document.getElementById('description').value);
+						form.append("photoFile", files[0]);
 					    $.ajax({
 					        url: './method/uploadPhoto',
 					        type: 'POST',
