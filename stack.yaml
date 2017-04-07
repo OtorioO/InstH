@@ -47,6 +47,8 @@ extra-deps:
 - fixed-vector-0.8.1.0
 - yarr-1.4.0.2
 - resource-pool-0.2.3.2
+- wai-extra-3.0.19
+- text-1.2.2.1
 # Override default flag values for local packages and extra-deps
 flags: {}
 
