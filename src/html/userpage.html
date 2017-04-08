@@ -14,13 +14,13 @@
 
 	<header>
 		<div class="logo">
-			<a href="../index.html"><img src="../img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
+			<a href="../wall"><img src="../img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
 		</div><!-- end logo -->
 
 		<div id="menu_icon"></div>
 		<nav>
 			<ul>
-				<li><a href="../test.html" class="selected">Портфолио</a></li>
+				<li><a href="../wall" class="selected">Стена</a></li>
 				<li><a href="../download.html">Загрузить фотографию</a></li>
 			</ul>
 		</nav><!-- end navigation menu -->
@@ -35,26 +35,17 @@
 				<p>Copyright © БПШ</p>
 			</div><!-- end rights -->
 		</div ><!-- end footer -->
-	</header><!-- end header -->
-	<div class="main clearfix">
-			<form onsubmit="byAuthor()">
-  				<br><input id="author" type="text" placeholder="Автор" value="">
-  				<input style="float:right;"type="submit" value="Искать">
-			</form>
-			<script>
-				function byAuthor(){
-					var t = document.getElementById("author").value;
-					$.get("../method/getPhotos",{userName: t}, onAjaxSuccess, 'json');
- 				}
-			}); 
-		</script>
-	</div>
-	<section class="main clearfix" id="qwe">
 		<script>
-		$(document).ready(function(){
-				$.get("../method/getPhotos",{}, onAjaxSuccess, 'json');
- 
-				function onAjaxSuccess(data)
+		function sendReq(){
+			var t = document.getElementById("author").value;
+			if(t == ''){
+				$.get("../method/getPhotos",{}, onAjaxSuccess);
+			}
+			else{
+				$.get("../method/getPhotos",{userName: t}, onAjaxSuccess, 'json');
+			}		
+		}
+		function onAjaxSuccess(data)
 				{
 				  // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
 				 var i = 0;
@@ -62,10 +53,28 @@
 				 for(i = 0; i < data.length; ++i)
 				 {
 				 	div = div + "<div class='work'>" +
-				 	"<a><img src='../img/" + data[i].image_src + "' class='media' alt=''/>" + "<div class='caption'><div class='work_title'><h1>" + data[i].description + "</h1></div></div></a></div>";
+				 	"<a><img src='../img/" + data[i].image_src + "' class='media' alt=''/>" + "<div class='caption'><div class='work_title'><h1>" + "<p>Author: " + data[i].userName + "</p><p>Date: " + data[i].date + "</p><br>Description: " + data[i].description + "</h1></div></div></a></div>";
 				 }
 				 $("#qwe").html(div);				 
 				}
+		</script>
+	</header><!-- end header -->
+	<div class="main clearfix">
+			</script>
+			<form onkeypress="if(event.keyCode == 13){sendReq(); return false;} ">
+  				<br><input id="author" type="text" placeholder="Автор" value="">
+  				<input style="float:right;" type="button" id="btn" value="Искать">
+			</form>
+			<script>
+			$('#btn').on('click', function () {
+					sendReq();			
+			}); 
+		</script>
+	</div>
+	<section class="main clearfix" id="qwe">
+		<script>
+		$(document).ready(function(){
+				$.get("../method/getPhotos",{}, onAjaxSuccess, 'json');
 			}); 
 		</script>
 		<!-- <div class="work">

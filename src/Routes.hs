@@ -13,11 +13,11 @@ import Db
 import Web.Scotty
 
 import qualified Web.Scotty as S
-import Text.Blaze.Html.Renderer.Text
+--import Text.Blaze.Html.Renderer.Text
 --import GHC.Generics
 --import Data.Aeson (FromJSON, ToJSON)
 
---import Data.Monoid ((<>))
+import Data.Monoid ((<>))
 --import Data.Monoid (mconcat)
 
 --import Database.PostgreSQL.Simple
@@ -28,14 +28,35 @@ import Control.Applicative
 import Database.PostgreSQL.Simple
 import Data.Pool(Pool, createPool, withResource)
 import qualified Data.Text.Lazy as T
+import qualified Data.List as LI
+import Data.Maybe
+import qualified Data.ByteString as B
+import qualified Data.ByteString.Lazy as L
+import Network.Wai.Parse (FileInfo (..))
 
-import           Network.Wai.Parse (FileInfo)
+--blaze = S.html . renderHtml
 
-blaze = S.html . renderHtml
-
+pathToFiles :: T.Text
+pathToFiles = "/home/android/Documents/Programs/git/InstH/src/html/img/"
 
 sendPhotosList :: [PhotoStruct] -> ActionM ()
 sendPhotosList photos = json photos
+
+
+getFileInfo :: [File] -> FileInfo L.ByteString
+getFileInfo file = snd (LI.head file)
+
+getFileName :: FileInfo L.ByteString -> B.ByteString
+getFileName  (FileInfo fileName _ _) = fileName
+
+getFileType :: FileInfo L.ByteString  -> B.ByteString
+getFileType (FileInfo _ fileType _) = fileType
+ 
+getFileContent :: FileInfo L.ByteString -> L.ByteString
+getFileContent (FileInfo _ _ content) = content
+
+
+
 
 routes :: Pool Connection -> ScottyM ()
 routes pool = do
@@ -46,26 +67,37 @@ routes pool = do
      blaze . Lib.test $ -1
     get "/1.js" $
      file "1.js" -}
-
+    get "/method/getPhotos" $ do
+      uN <- param "userName" `rescue` (const next )
+      photos <- liftIO $ getListPhotosWithName pool uN
+      sendPhotosList photos
+      
     get "/method/getPhotos" $ do
       photos <- liftIO $ getListPhotos pool
       sendPhotosList photos
 
     post "/method/uploadPhoto" $ do
-        us <- files
-        --ofile <- (head us)
-        text (T.pack (show (length us)))
+      us <- files
+      uN <- param "userName"
+      date <- param "date"
+      des <- param "description"
+      nphoto <- liftIO $ putPhotoToDb pool (T.pack(show (getFileName (getFileInfo us)))) uN date des
+
+        --text (T.pack (show (length us)))
+       -- text . T.pack $(show (getFileInfo (L.head us)))
+      --text $ (T.pack(show (getFileName (getFileInfo us))) <> T.pack(show (getFileType (getFileInfo us))))
+      liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
+      text (fromOnly (LI.head nphoto))
+    
+    get "/wall" $ do
+     file $ "./src/html/userpage.html"
 
     get "/" $ do 
-        showMainPage
-     
-    get "/:w" $ do
-     word <- param "w"
-     file $ mconcat ["./src/html/", word]
+      showMainPage
 
-    get "/u/:user" $ do
-     --user <- param "user"
-     file $ "./src/html/userpage.html"
+    get "/:w" $ do
+      word <- param "w"
+      file $ mconcat ["./src/html/", word]
 
     get "/js/:w" $ do
      word <- param "w"
@@ -98,22 +130,6 @@ routes pool = do
         file $ "./src/html/index.html"
       -}
 
-
-
-
-{-
-dosth :: String
-dosth = do
-        conn <- connect defaultConnectInfo {
-            connectDatabase = "postgres",
-            connectPassword = "iamadminpostgres",
-            connectUser = "postgres",
-            connectPort = 5432,
-            connectHost = "localhost"
-        }
-        xs <- query_ conn "select 2+2"
-        return "123"
--}
 
 showMainPage :: ActionM ()
 showMainPage = do

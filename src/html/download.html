@@ -7,21 +7,78 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.cropbox.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/date.js"></script>
+    <script type="text/javascript" src="js/jquery.cropbox.js"></script>
+    <script type="text/javascript">
+	    function ISODateString(d) {
+		function pad(n) {return n<10 ? '0'+n : n}
+		return d.getUTCFullYear()+'-'
+		+ pad(d.getUTCMonth()+1)+'-'
+		+ pad(d.getUTCDate())+'T'
+		+ pad(d.getUTCHours())+':'
+		+ pad(d.getUTCMinutes())+':'
+		+ pad(d.getUTCSeconds())+'Z'
+		}
+	 </script>
+    <script type="text/javascript" defer>
+    var us;
+    $( function () {
+      $( '.cropimage' ).each( function () {
+        var image = $(this),
+            cropwidth = image.attr('cropwidth'),
+            cropheight = image.attr('cropheight'),
+            results = image.next('.results' ),
+            x       = $('.cropX', results),
+            y       = $('.cropY', results),
+            w       = $('.cropW', results),
+            h       = $('.cropH', results),
+            download = results.next('.download').find('a');
+
+          image.cropbox( {width: cropwidth, height: cropheight, showControls: 'auto' } )
+            .on('cropbox', function( event, results, img ) {
+              x.text( results.cropX );
+              y.text( results.cropY );
+              w.text( results.cropW );
+              h.text( results.cropH );
+              download.attr('href', img.getDataURL());
+            });
+      } );
+
+      $('#select').on('change', function () {
+          var size = parseInt(this.value);
+          $('.cropimage').each(function () {
+            $(this).cropbox({width: size, height: size})
+          });
+      });
+
+    } );
+  </script>
+  <script> function sendReq(){
+				$.get("/method/publishPhoto",{image_src: us}, onAjaxSuccess);
+			}		
+			function onAjaxSuccess(data)
+				{
+				  // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
+				 	document.location.replace("http://localhost:3000/wall");				 
+				}
+		</script>
+	</script>
 </head>
 <body>
 
 	<header>
 		<div class="logo">
-			<a href="index.html"><img src="img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
+			<a href="../wall"><img src="img/Instagram-Logo.png" title="OurInstagram" alt="OurInstagram"/></a>
 		</div><!-- end logo -->
 
 		<div id="menu_icon"></div>
 		<nav>
 			<ul>
-				<li><a href="test.html" class="selected">Портфолио</a></li>
-				<li><a href="#">Загрузить фотографию</a></li>
+				<li><a href="../wall">Стена</a></li>
+				<li><a href="#" class="selected">Загрузить фотографию</a></li>
 			</ul>
 		</nav><!-- end navigation menu -->
 
@@ -41,72 +98,85 @@
 		<section class="main clearfix">
 
 		<section class="content">
+			<div id="qwerty">
 			<h1>Загрузка фотографии</h1>
 		<!--	<form action="#" method="post" enctype="multipart/form-data"> -->
+					<div id="err" style="color:red;"></div>
 					<div class="fileform">
 						<div id="fileformlabel"></div>
 						<div class="selectbutton">Обзор</div>
-							<input type="file" accept="image/*" name="upload" id="upload" onchange="getName(this.value);" />
+						<input type="file" accept="image/*" name="upload" id="upload" onchange="getName(this.value);" required/>
 					</div>
 	        		<br>
-	        		<textarea rows="4" cols="50" name="description" placeholder="Введите ваш комментарий к фотографии:" class="message" required></textarea>
-	        		<a href="#" class="submit button">Загрузить фото</a>
+	        		<input type="text" name="author" placeholder="Автор" id="author" class="txtt" required/>
+	        		<textarea rows="4" cols="50" name="description" id="description" placeholder="Введите ваш комментарий к фотографии:" class="message" required></textarea>
+	        		<div style="float:right;"><a style="text-decoration: none;" id="but" href="#" class="submit button">Перейти к редактированию</a></div></div>
 				<!--	<input type="submit" class="button" name="submit" class="btn btn-default" value="Сохранить">
 				</form>  -->
  					<br><br>
 				<div class="ajax-respond"></div>
 				<script>
 				    var files;
- 				//	var jsonO;
- 				//	var jsonStr;
- 					var form = new FormData();
+
 
 					$('input[type=file]').change(function(){
 					    files = this.files;
-					   /* jsonO = {userName : "u1",
-								 date : "123",
-								 description : "3432",
-								}
-						jsonStr = JSON.stringify(jsonO);*/
-						form.append("userName", "u1");
-						form.append("date", "123");
-						form.append("description", "213");
-						form.append("photoFile", files[0]);
 					});
 
-					$('.submit.button').click(function( event ){
-					    event.stopPropagation(); // Остановка происходящего
-					    event.preventDefault();  // Полная остановка 
-					    $.ajax({
-					        url: './method/uploadPhoto',
-					        type: 'POST',
-					        data: form,
-					        cache: false,
-					        dataType: 'json',
-					        processData: false, // Не обрабатываем файлы (Don't process the files)
-					        contentType: false, // Так jQuery скажет серверу что это строковой запрос
-					        success: function( respond, textStatus, jqXHR ){
-					 
-					            // Если все ОК
-					 
-					            if( typeof respond.error === 'undefined' ){
-					                // Файлы успешно загружены, делаем что нибудь здесь
-					 
-					                // выведем пути к загруженным файлам в блок '.ajax-respond'
-					 
-					                var files_path = respond.files;
-					                var html = '';
-					                $.each( files_path, function( key, val ){ html += val +'<br>'; } )
-					                $('.ajax-respond').html( html );
-					            }
-					            else{
-					                console.log('ОШИБКИ ОТВЕТА сервера: ' + respond.error );
-					            }
-					        },
-					        error: function( jqXHR, textStatus, errorThrown ){
-					            console.log('ОШИБКИ AJAX запроса: ' + textStatus );
-					        }
-					    });
+					$('#but').click(function( event ){
+						if(typeof files === 'undefined'){
+							$('#err').html('Вы не выбрали картинку! Выберете картинку!<br>');
+							return false;
+						}
+						else{
+							if(document.getElementById('author').value.length < 2){
+							$('#err').html('Имя автора должно содержать более 2ух символов!');
+							return false;
+							}
+							$('#err').html('');
+							event.stopPropagation(); // Остановка происходящего
+					    	event.preventDefault();  // Полная остановка 
+					    	var form = new FormData();
+					    	//var d = new Date().toString('dd.MM.yyyy');
+					    	var ddd = new Date();
+							var d = ISODateString(ddd); 
+						    form.append("userName", document.getElementById('author').value);
+							form.append("date", d);
+							form.append("description", document.getElementById('description').value);
+							form.append("photoFile", files[0]);
+						    $.ajax({
+						        url: './method/uploadPhoto',
+						        type: 'POST',
+						        data: form,
+						        cache: false,
+						        dataType: 'json',
+						        processData: false, // Не обрабатываем файлы (Don't process the files)
+						        contentType: false, // Так jQuery скажет серверу что это строковой запрос
+						        success: function( respond, textStatus, jqXHR ){
+						 
+						            // Если все ОК
+						 
+						            if( typeof respond.error === 'undefined' ){
+						                // Файлы успешно загружены, делаем что нибудь здесь
+						 
+						                // выведем пути к загруженным файлам в блок '.ajax-respond'
+						 
+						                var files_path = respond.files;
+						                var html = '';
+						                $.each( files_path, function( key, val ){ html += val +'<br>'; } )
+						                $('.ajax-respond').html( html );
+						                us = respond.text;
+						                $('#qwerty').html("<img class='cropimage' src='../img/" + respond.text + "' " + "cropwidth='200' cropheight='200'>" + "<div class='results'>" + "<b>X " + " </b>" + " <span class='cropX'>" + "</span>" + "<b>Y " + " </b>: " + " <span class='cropY'>" + "</span>" + "<b>W" + "</b>: " + " <span class='cropW'>" + "</span>" + "<b>H" + "</b>: " + "<span class='cropH'>" + "</span>" + "</div>" + "<br>" + "<select id='select'>" + "<option value='200' selected>200" + "</option>" + "<option value='300'>300" + "</option>" + "</select>" + "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='bbb' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>");
+						            }
+						            else{
+						                console.log('ОШИБКИ ОТВЕТА сервера: ' + respond.error );
+						            }
+						        },
+						        error: function( jqXHR, textStatus, errorThrown ){
+						            console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+						        }
+						    });
+					    }				    
 					 
 					});
 				</script>
