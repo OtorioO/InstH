@@ -55,7 +55,10 @@ checkToken pool token = do
   res <- fetch pool (Only token) ("select * from check_token(?)") :: IO [Only Int]
   return res
 
-
+getListPhotosWithToken :: Pool Connection -> String-> IO [PhotoStruct]
+getListPhotosWithToken pool t = do
+  res <- fetch pool (Only t) ("select * from get_photos_token(?)") :: IO [(String, String, String, String)]
+  return $ map (\(userName, isrc, date, descr) -> PhotoStruct userName isrc date descr) res
 
 
 
