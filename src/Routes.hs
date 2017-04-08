@@ -36,8 +36,8 @@ import Network.Wai.Parse (FileInfo (..))
 
 --blaze = S.html . renderHtml
 
-
-pathToFiles = "/home/android/Documents/Programs/"
+pathToFiles :: T.Text
+pathToFiles = "/home/android/Documents/Programs/git/InstH/src/html/img/"
 
 sendPhotosList :: [PhotoStruct] -> ActionM ()
 sendPhotosList photos = json photos
@@ -78,11 +78,17 @@ routes pool = do
 
     post "/method/uploadPhoto" $ do
       us <- files
+      uN <- param "userName"
+      date <- param "date"
+      des <- param "description"
+      nphoto <- liftIO $ putPhotoToDb pool (T.pack(show (getFileName (getFileInfo us)))) uN date des
+
         --text (T.pack (show (length us)))
        -- text . T.pack $(show (getFileInfo (L.head us)))
-      text $ (T.pack(show (getFileName (getFileInfo us))) <> T.pack(show (getFileType (getFileInfo us))))
-      --liftAndCatchIO (L.writeFile (pathToFiles ++ "test.png") (getFileContent (getFileInfo us))) 
-
+      --text $ (T.pack(show (getFileName (getFileInfo us))) <> T.pack(show (getFileType (getFileInfo us))))
+      liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
+      text (fromOnly (LI.head nphoto))
+    
     get "/wall" $ do
      file $ "./src/html/userpage.html"
 
