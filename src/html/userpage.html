@@ -39,7 +39,7 @@
 		function sendReq(){
 			var t = document.getElementById("author").value;
 			if(t == ''){
-				$.get("../method/getPhotos",{}, onAjaxSuccess, 'json');
+				$.get("../method/getPhotos",{}, onAjaxSuccess);
 			}
 			else{
 				$.get("../method/getPhotos",{userName: t}, onAjaxSuccess, 'json');
