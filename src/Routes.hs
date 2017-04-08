@@ -56,7 +56,14 @@ getFileContent :: FileInfo L.ByteString -> L.ByteString
 getFileContent (FileInfo _ _ content) = content
 
 
+chosen:: Int -> ActionM ()
+chosen par =
+  if par == 1
+    then redirectOnWall
+    else showMainPage
 
+redirectOnWall:: ActionM ()
+redirectOnWall = redirect "/wall"
 
 routes :: Pool Connection -> ScottyM ()
 routes pool = do
@@ -67,6 +74,22 @@ routes pool = do
      blaze . Lib.test $ -1
     get "/1.js" $
      file "1.js" -}
+    post "/method/regAction" $ do
+      uName <- param "regLogin"
+      uE <- param "regEmail"
+      rName <- param "regRName"
+      pass <- param "regPass"
+      resp <- liftIO $ regUser pool uName uE rName pass
+      text . T.pack $ (show (fromOnly (LI.head resp)))
+
+    post "/method/getToken" $ do
+      uName <- param "logLogin"
+      pass <- param "logPass"
+      resp <- liftIO $  (getToken pool uName pass)
+      text (fromOnly (LI.head resp))
+
+    
+
     get "/method/getPhotos" $ do
       uN <- param "userName" `rescue` (const next )
       photos <- liftIO $ getListPhotosWithName pool uN
@@ -89,11 +112,26 @@ routes pool = do
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
       text (fromOnly (LI.head nphoto))
     
+    get "/method/uploadPhotoWithOrigin" $do
+      --h <- request
+      --text (T.pack (show h))
+
+      h <- header "Cookie"
+      text (fromMaybe "NoCookie" h)
+
+    post "/method/publishPhoto" $ do
+      uF <- param "image_src"
+      publishPhoto pool uF
+
     get "/wall" $ do
      file $ "./src/html/userpage.html"
 
-    get "/" $ do 
-      showMainPage
+    get "/" $ do
+      h <- header "Cookie"
+      resp <- liftIO $ checkToken pool (fromMaybe "" (T.stripPrefix "token=" (fromMaybe "NoCookie" h)))
+      --text . T.pack $ (show (fromOnly (LI.head resp)))
+      --showMainPage
+      chosen (fromOnly (LI.head resp))
 
     get "/:w" $ do
       word <- param "w"
