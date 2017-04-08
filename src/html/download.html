@@ -23,9 +23,9 @@
 		+ pad(d.getUTCSeconds())+'Z'
 		}
 	 </script>
-    <script type="text/javascript" defer>
+    <script type="text/javascript">
     var us;
-    $( function () {
+    /*$( function () {
       $( '.cropimage' ).each( function () {
         var image = $(this),
             cropwidth = image.attr('cropwidth'),
@@ -54,15 +54,17 @@
           });
       });
 
-    } );
+    } ); */
   </script>
-  <script> function sendReq(){
-				$.get("/method/publishPhoto",{image_src: us}, onAjaxSuccess);
+  <script> 
+  	var zzimg;
+  function sendReq(){
+				$.post("/method/uploadPhoto",{userName: 'test', date: '2017-04-08T16:18:11Z', description: 'test', photoFile: zzimg}, onAjaxSuccess, 'html');
 			}		
 			function onAjaxSuccess(data)
 				{
 				  // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
-				 	document.location.replace("http://localhost:3000/wall");				 
+				 	document.location.replace("../wall");				 
 				}
 		</script>
 	</script>
@@ -122,7 +124,9 @@
 					$('input[type=file]').change(function(){
 					    files = this.files;
 					});
-
+					$('#bbb').click(function( event ){
+						sendReq();
+					});
 					$('#but').click(function( event ){
 						if(typeof files === 'undefined'){
 							$('#err').html('Вы не выбрали картинку! Выберете картинку!<br>');
@@ -149,32 +153,50 @@
 						        type: 'POST',
 						        data: form,
 						        cache: false,
-						        dataType: 'json',
+						        dataType: 'html',
 						        processData: false, // Не обрабатываем файлы (Don't process the files)
 						        contentType: false, // Так jQuery скажет серверу что это строковой запрос
-						        success: function( respond, textStatus, jqXHR ){
+						        success: function(respond){
 						 
 						            // Если все ОК
 						 
-						            if( typeof respond.error === 'undefined' ){
 						                // Файлы успешно загружены, делаем что нибудь здесь
 						 
 						                // выведем пути к загруженным файлам в блок '.ajax-respond'
-						 
-						                var files_path = respond.files;
-						                var html = '';
-						                $.each( files_path, function( key, val ){ html += val +'<br>'; } )
-						                $('.ajax-respond').html( html );
-						                us = respond.text;
-						                $('#qwerty').html("<img class='cropimage' src='../img/" + respond.text + "' " + "cropwidth='200' cropheight='200'>" + "<div class='results'>" + "<b>X " + " </b>" + " <span class='cropX'>" + "</span>" + "<b>Y " + " </b>: " + " <span class='cropY'>" + "</span>" + "<b>W" + "</b>: " + " <span class='cropW'>" + "</span>" + "<b>H" + "</b>: " + "<span class='cropH'>" + "</span>" + "</div>" + "<br>" + "<select id='select'>" + "<option value='200' selected>200" + "</option>" + "<option value='300'>300" + "</option>" + "</select>" + "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='bbb' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>");
-						            }
-						            else{
-						                console.log('ОШИБКИ ОТВЕТА сервера: ' + respond.error );
-						            }
-						        },
-						        error: function( jqXHR, textStatus, errorThrown ){
-						            console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+						                us = respond;
+						                $('#qwerty').html("<img class='cropimage' src='../img/" + respond + "' " + "cropwidth='200' cropheight='200'>" + "<div class='results'>" + "<b>X " + " </b>" + " <span class='cropX'>" + "</span>" + "<b>Y " + " </b>: " + " <span class='cropY'>" + "</span>" + "<b>W" + "</b>: " + " <span class='cropW'>" + "</span>" + "<b>H" + "</b>: " + "<span class='cropH'>" + "</span>" + "</div>" + "<br>" + "<select id='select'>" + "<option value='200' selected>200" + "</option>" + "<option value='300'>300" + "</option>" + "</select>" + "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='bbb' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>");
+						                $( '.cropimage' ).each( function () {
+								        var image = $(this),
+								            cropwidth = image.attr('cropwidth'),
+								            cropheight = image.attr('cropheight'),
+								            results = image.next('.results' ),
+								            x       = $('.cropX', results),
+								            y       = $('.cropY', results),
+								            w       = $('.cropW', results),
+								            h       = $('.cropH', results),
+								            download = results.next('.download').find('a');
+
+								          image.cropbox( {width: cropwidth, height: cropheight, showControls: 'auto' } )
+								            .on('cropbox', function( event, results, img ) {
+								              x.text( results.cropX );
+								              y.text( results.cropY );
+								              w.text( results.cropW );
+								              h.text( results.cropH );
+								              zzimg = img;
+								              download.attr('href', img.getDataURL());
+								            });
+									      } );
+
+									      $('#select').on('change', function () {
+									          var size = parseInt(this.value);
+									          $('.cropimage').each(function () {
+									            $(this).cropbox({width: size, height: size})
+									          });
+									      });
 						        }
+						        /*error: function( jqXHR, textStatus, errorThrown ){
+						            console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+						        }*/
 						    });
 					    }				    
 					 
