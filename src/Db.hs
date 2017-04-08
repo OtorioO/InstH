@@ -15,6 +15,7 @@ import qualified Data.Text.Lazy as TL
 import Data.Text.Lazy (Text)
 import Data.Monoid ((<>))
 import Data.Monoid (mconcat)
+import qualified Data.List as LI
 import Web.Scotty (ActionM)
 import GHC.Int
 
@@ -43,6 +44,18 @@ regUser :: Pool Connection -> Text -> Text -> Text-> Text-> IO [Only Int]
 regUser pool uName uE rName pass = do
   res <- fetch pool [uName, pass, uE, rName] ("select * from reg_user(?,?,?,?)") :: IO [Only Int]
   return res
+
+getToken :: Pool Connection -> Text -> Text -> IO [Only Text]
+getToken pool uN uP = do
+  res <- fetch pool [uN, uP] ("select * from get_token(?,?)") :: IO [Only Text]
+  return res
+
+checkToken :: Pool Connection -> Text -> IO [Only Int]
+checkToken pool token = do
+  res <- fetch pool (Only token) ("select * from check_token(?)") :: IO [Only Int]
+  return res
+
+
 
 
 

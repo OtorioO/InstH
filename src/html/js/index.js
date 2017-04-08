@@ -84,7 +84,7 @@ $('#but0').on('click', function (e) {
 
 });
 
-/*регистрация*/
+
 $('#but1').on('click', function (e) {
   var uN = $('#logLogin')[0].value;
   var uP = $('#logPass')[0].value;
@@ -94,7 +94,7 @@ $('#but1').on('click', function (e) {
       form.append('logLogin', uN);
       form.append('logPass', uP);
       $.ajax({
-                  url: './method/loginAction',
+                  url: './method/getToken',
                   type: 'POST',
                   data: form,
                   cache: false,
@@ -102,7 +102,15 @@ $('#but1').on('click', function (e) {
                   processData: false, // Не обрабатываем файлы (Don't process the files)
                   contentType: false, // Так jQuery скажет серверу что это строковой запрос
                   success: function( respond, textStatus, jqXHR ){
-                      
+                      if(respond.length > 0)
+                      {
+                        document.cookie = "token="+respond;
+                        $(location).attr('href','../wall');
+                      }
+                      else
+                      {
+                        alert('Вы ввели некорректные данные');
+                      }
                   },
                   error: function( jqXHR, textStatus, errorThrown ){
                       console.log('ОШИБКИ AJAX запроса: ' + textStatus );
