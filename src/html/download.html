@@ -80,8 +80,15 @@
 		<nav>
 			<ul>
 				<li><a href="../wall">Стена</a></li>
+				<li><a id = "fpass" href="#">Ваши фотографии</a></li>
 				<li><a href="#" class="selected">Загрузить фотографию</a></li>
 			</ul>
+			<script>
+			$('#fpass').on('click', function (e) {
+			    co = readCookie('token');
+			  $.get("../method/getPhotos",{token: co}, onAjaxSuccess, 'json');
+			});
+			</script>
 		</nav><!-- end navigation menu -->
 
 		<div class="footer clearfix">

@@ -56,14 +56,14 @@ getFileContent :: FileInfo L.ByteString -> L.ByteString
 getFileContent (FileInfo _ _ content) = content
 
 
-chosen:: Int -> ActionM ()
-chosen par =
-  if par == 1
-    then redirectOnWall
-    else showMainPage
 
-redirectOnWall:: ActionM ()
-redirectOnWall = redirect "/wall"
+сheckTokenFromCookie :: Pool Connection -> Maybe T.Text -> IO Int
+сheckTokenFromCookie pool h = do
+      res <- (checkToken pool (fromMaybe "" (T.stripPrefix "token=" (fromMaybe "NoCookie" h))))
+   --          IO [Only Int]      T.Text        Maybe T.Text           T.Text
+      return $ (LI.head (map (\el -> fromOnly el) res))
+--сheckTokenFromCookie pool h = liftIO (checkToken pool (fromMaybe "" (T.stripPrefix "token=" (fromMaybe "NoCookie" h))
+
 
 routes :: Pool Connection -> ScottyM ()
 routes pool = do
@@ -89,12 +89,16 @@ routes pool = do
       text (fromOnly (LI.head resp))
 
     
-
     get "/method/getPhotos" $ do
       uN <- param "userName" `rescue` (const next )
       photos <- liftIO $ getListPhotosWithName pool uN
       sendPhotosList photos
-      
+    
+    get "/method/getPhotos" $ do
+      t <- param "token" `rescue` (const next )
+      photos <- liftIO $ getListPhotosWithToken pool t
+      sendPhotosList photos  
+
     get "/method/getPhotos" $ do
       photos <- liftIO $ getListPhotos pool
       sendPhotosList photos
@@ -115,27 +119,38 @@ routes pool = do
     get "/method/uploadPhotoWithOrigin" $do
       --h <- request
       --text (T.pack (show h))
-
-      h <- header "Cookie"
-      text (fromMaybe "NoCookie" h)
+    --недописано
+      text "404"
 
     post "/method/publishPhoto" $ do
       uF <- param "image_src"
       publishPhoto pool uF
 
     get "/wall" $ do
-     file $ "./src/html/userpage.html"
+      h <- header "Cookie"
+      resp <- liftIO (сheckTokenFromCookie pool h)
+      if resp ==  1
+        then showWall
+        else redirect "/"
+
+    get "/upload" $ do
+      h <- header "Cookie"
+      resp <- liftIO (сheckTokenFromCookie pool h)
+      if resp ==  1
+        then showUpload
+        else redirect "/"
 
     get "/" $ do
       h <- header "Cookie"
-      resp <- liftIO $ checkToken pool (fromMaybe "" (T.stripPrefix "token=" (fromMaybe "NoCookie" h)))
-      --text . T.pack $ (show (fromOnly (LI.head resp)))
-      --showMainPage
-      chosen (fromOnly (LI.head resp))
+      resp <- liftIO (сheckTokenFromCookie pool h)
+      if resp ==  1
+        then redirect "/wall"
+        else showMainPage
 
-    get "/:w" $ do
-      word <- param "w"
-      file $ mconcat ["./src/html/", word]
+
+  --get "/:w" $ do
+  --    word <- param "w"
+  --    file $ mconcat ["./src/html/", word]
 
     get "/js/:w" $ do
      word <- param "w"
@@ -173,6 +188,19 @@ showMainPage :: ActionM ()
 showMainPage = do
     setHeader "Content-Type" "text/html"
     file "./src/html/index.html"
+
+showWall :: ActionM ()
+showWall = do
+    --setHeader "Content-Type" "text/html"
+    file "./src/html/userpage.html"
+
+showUpload :: ActionM ()
+showUpload = do
+    --setHeader "Content-Type" "text/html"
+    file "./src/html/download.html"
+
+redirectOnWall:: ActionM ()
+redirectOnWall = redirect "/wall"
 {-}
 registerInterest :: String -> IO (Maybe String)
 
