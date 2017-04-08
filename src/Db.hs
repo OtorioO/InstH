@@ -15,6 +15,8 @@ import qualified Data.Text.Lazy as TL
 import Data.Text.Lazy (Text)
 import Data.Monoid ((<>))
 import Data.Monoid (mconcat)
+import Web.Scotty (ActionM)
+import GHC.Int
 
 getListPhotos :: Pool Connection -> IO [PhotoStruct]
 getListPhotos pool = do
@@ -32,6 +34,18 @@ putPhotoToDb pool fileName userName date descr = do
 	res <- fetch pool [fileName, userName, date, descr] ("select add_photo (?, ?, ?, ?)") :: IO [Only Text]
 	return res
 
+publishPhoto :: Pool Connection -> Text -> ActionM ()
+publishPhoto pool fileName = do
+	liftIO $ execSql pool [fileName] "update user_table set is_public = true where image_src = ?"
+	return ()
+
+regUser :: Pool Connection -> Text -> Text -> Text-> Text-> IO [Only Int]
+regUser pool uName uE rName pass = do
+  res <- fetch pool [uName, pass, uE, rName] ("select * from reg_user(?,?,?,?)") :: IO [Only Int]
+  return res
+
+
+
 fetchSimple :: FromRow r => Pool Connection -> Query -> IO [r]
 fetchSimple pool sql = withResource pool retrieve
        where retrieve conn = query_ conn sql
@@ -39,3 +53,7 @@ fetchSimple pool sql = withResource pool retrieve
 fetch :: (ToRow q, FromRow r) => Pool Connection -> q -> Query -> IO [r]
 fetch pool args sql = withResource pool retrieve
       where retrieve conn = query conn sql args
+
+execSql :: ToRow q => Pool Connection -> q -> Query -> IO GHC.Int.Int64
+execSql pool args sql = withResource pool ins
+       where ins conn = execute conn sql args

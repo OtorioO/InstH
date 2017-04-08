@@ -67,6 +67,19 @@ routes pool = do
      blaze . Lib.test $ -1
     get "/1.js" $
      file "1.js" -}
+    post "/method/regAction" $ do
+      uName <- param "regLogin"
+      uE <- param "regEmail"
+      rName <- param "regRName"
+      pass <- param "regPass"
+      resp <- liftIO $ regUser pool uName uE rName pass
+      text . T.pack $ (show (fromOnly (LI.head resp)))
+
+    post "/method/loginAction" $ do
+      text "Responding2"
+
+    
+
     get "/method/getPhotos" $ do
       uN <- param "userName" `rescue` (const next )
       photos <- liftIO $ getListPhotosWithName pool uN
@@ -89,6 +102,10 @@ routes pool = do
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
       text (fromOnly (LI.head nphoto))
     
+    post "/method/publishPhoto" $ do
+      uF <- param "image_src"
+      publishPhoto pool uF
+
     get "/wall" $ do
      file $ "./src/html/userpage.html"
 
