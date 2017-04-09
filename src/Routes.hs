@@ -88,7 +88,11 @@ routes pool = do
       resp <- liftIO $  (getToken pool uName pass)
       text (fromOnly (LI.head resp))
 
-    
+    get "/method/deactivateToken" $ do
+      token <- param "token"
+      resp <- liftIO (deactToken pool token)
+      text "ok"
+
     get "/method/getPhotos" $ do
       uN <- param "userName" `rescue` (const next )
       photos <- liftIO $ getListPhotosWithName pool uN

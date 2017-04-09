@@ -50,6 +50,11 @@ getToken pool uN uP = do
   res <- fetch pool [uN, uP] ("select * from get_token(?,?)") :: IO [Only Text]
   return res
 
+deactToken ::  Pool Connection -> Text -> IO [Only Int]
+deactToken pool token = do
+  res <- fetch pool (Only token) "select deactivate_token(?)"
+  return res
+
 checkToken :: Pool Connection -> Text -> IO [Only Int]
 checkToken pool token = do
   res <- fetch pool (Only token) ("select * from check_token(?)") :: IO [Only Int]
