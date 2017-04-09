@@ -21,7 +21,9 @@
 		<nav>
 			<ul>
 				<li><a href="../wall" class="selected">Стена</a></li>
-				<li><a href="../download.html">Загрузить фотографию</a></li>
+				<li><a id = "fpass" href="#">Ваши фотографии</a></li>
+				<li><a href="../upload">Загрузить фотографию</a></li>
+				<li><a id = "fpass1" href="#">Выйти</a></li>
 			</ul>
 		</nav><!-- end navigation menu -->
 
@@ -36,6 +38,23 @@
 			</div><!-- end rights -->
 		</div ><!-- end footer -->
 		<script>
+		$('#fpass').on('click', function (e) {
+		    co = readCookie('token');
+		  $.get("../method/getPhotos",{token: co}, onAjaxSuccess, 'json');
+		});
+		$('#fpass1').on('click', 
+			function (e) {
+		    co = readCookie('token');
+		    $.get("../method/deactivateToken",
+		  		{token: co}, 
+		  		RespFpass1);
+		});
+
+		function RespFpass1 (data) {
+		  		document.cookie - "token = ";
+		  		$(location).attr('href','../');
+		}
+
 		function sendReq(){
 			var t = document.getElementById("author").value;
 			if(t == ''){
@@ -45,6 +64,7 @@
 				$.get("../method/getPhotos",{userName: t}, onAjaxSuccess, 'json');
 			}		
 		}
+
 		function onAjaxSuccess(data)
 				{
 				  // Здесь мы получаем данные, отправленные сервером и выводим их на экран.

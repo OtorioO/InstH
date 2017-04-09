@@ -13,5 +13,16 @@ data PhotoStruct = PhotoStruct  {
                                 date :: String,
                                 description :: String
                                 } deriving (Show, Generic)
+
+data UserInfo = UserInfo {
+						 userN :: String,
+						 realName :: String,
+						 email :: String
+						 } deriving (Show, Generic)
+
+
 instance ToJSON PhotoStruct
 instance FromJSON PhotoStruct
+
+instance ToJSON UserInfo
+instance FromJSON UserInfo
