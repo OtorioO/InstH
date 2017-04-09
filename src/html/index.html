@@ -22,21 +22,21 @@
         <div id="signup">   
           <h1>Добро пожаловать!</h1>
           
-          <form action="/regAction" method="post">
+        <!--  <form action="/regAction" method="post"> -->
           
          <!-- <div class="top-row"> -->
             <div class="field-wrap">
               <label>
                 Имя пользователя<span class="req">*</span>
               </label>
-              <input name = "login" type="text" required autocomplete="off" />
+              <input id ='regLogin' name = "login" type="text" required autocomplete="off" />
             </div>
         
             <div class="field-wrap">
               <label>
                 Ваше имя и фамилия<span class="req">*</span>
               </label>
-              <input name = "uName" type="text"required autocomplete="off"/>
+              <input id = 'regRName' name = "uName" type="text"required autocomplete="off"/>
             </div>
           <!--</div> -->
 
@@ -44,46 +44,46 @@
             <label>
               Эл. адрес<span class="req">*</span>
             </label>
-            <input name = "email" type="email"required autocomplete="off"/>
+            <input id ='regEmail' name = "email" type="email"required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Пароль<span class="req">*</span>
             </label>
-            <input name ="password" type="password"required autocomplete="off"/>
+            <input id ='regPass' name ="password" type="password"required autocomplete="off"/>
           </div>
           
-          <button type="submit" class="button button-block"/>Регистрация</button>
+          <button id="but0" type="button" class="button button-block"/>Регистрация</button>
           
-          </form>
+        <!--  </form> -->
 
         </div>
         
         <div id="login">   
           <h1>С возвращением!</h1>
           
-          <form action="/loginAction" method="post">
+        <!--  <form action="/loginAction" method="post"> -->
           
             <div class="field-wrap">
             <label>
               Имя пользователя<span class="req">*</span>
             </label>
-            <input name = "login" type="text" required autocomplete="off"/>
+            <input id ='logLogin' name = "login" type="text" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Пароль<span class="req">*</span>
             </label>
-            <input name = "password" type="password"required autocomplete="off"/>
+            <input id ='logPass'name = "password" type="password"required autocomplete="off"/>
           </div>
           
-          <p class="forgot"><a href="#">Забыли пароль?</a></p>
+          <p class="forgot"><a id = "fpass" href="#">Забыли пароль?</a></p>
           
-          <button class="button button-block"/>Войти</button>
+          <button id="but1" type = "button" class="button button-block"/>Войти</button>
           
-          </form>
+       <!--   </form> -->
 
         </div>
         
