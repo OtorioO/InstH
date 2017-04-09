@@ -99,7 +99,7 @@ bright imgin imgout colvo = --контрастность
 		   (\x -> do
                      brightness x colvo
                      saveJpegFile 95 imgout x
-                     putStrLn "OK")
+                     putStrLn "OK")  
 
 customcolor :: String -> String -> Int -> Int -> Int -> IO ()
 customcolor imgin imgout r g b = 
