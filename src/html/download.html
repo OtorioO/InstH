@@ -25,6 +25,7 @@
 			<ul>
 				<li><a href="../wall">Стена</a></li>
 				<li><a href="#" class="selected">Загрузить фотографию</a></li>
+				<li><a id = "fpass1" href="#">Выйти</a></li>
 			</ul>
 			<script>
 			/*$('#fpass').on('click', function (e) {
@@ -46,6 +47,15 @@
 				<p>Copyright © БПШ</p>
 			</div><!-- end rights -->
 		</div ><!-- end footer -->
+		<script>
+		$('#fpass1').on('click', 
+			function (e) {
+		    co = readCookie('token');
+		    $.get("../method/deactivateToken",
+		  		{token: co}, 
+		  		RespFpass1);
+		});
+		</script>
 	</header><!-- end header -->
 		
 		<section class="main clearfix">
@@ -157,7 +167,8 @@
 										        contentType: false, // Так jQuery скажет серверу что это строковой запрос
 										        success: function(respond2){
 										        	r2 = respond2;
-										        	var filterDiv = "<div id='imgFl'>" + "<img src='../img/" + respond2 + "' " + ">" + "</div>" + "<p>" + "<a style='text-decoration: none;' id='kelvin' href='#' class='filt'>Фильтр kelvin" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='blackwhite' href='#' class='filt'>Фильтр blackwhite" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='negativfiltr' href='#' class='filt'>Фильтр negativfiltr" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='meanR' href='#' class='filt'>Фильтр meanR" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='embfilters' href='#' class='filt'>Фильтр embfilters" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='bright' href='#' class='filt'>Фильтр bright" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='pub' href='#' class='submit button'>Опубликовать" + "</a>" + "</p>";
+										        	r3 = r2;
+										        	var filterDiv = "<div id='imgFl'>" + "<img src='../img/" + respond2 + "' " + ">" + "</div>" + "<a style='text-decoration: none;' id='kelvin' href='#' class='button15 filt'>Фильтр kelvin" + "</a>" + "<a style='text-decoration: none;' id='blackwhite' href='#' class='button15 filt'>Фильтр blackwhite" + "</a>" + "<a style='text-decoration: none;' id='negativfiltr' href='#' class='button15 filt'>Фильтр negativfiltr" + "</a>" + "<a style='text-decoration: none;' id='meanR' href='#' class='button15 filt'>Фильтр meanR" + "</a>" + "<a style='text-decoration: none;' id='embfilters' href='#' class='button15 filt'>Фильтр embfilters" + "</a>" + "<a style='text-decoration: none;' id='bright' href='#' class='button15 filt'>Фильтр bright" + "</a>" + "<a style='text-decoration: none;' id='nonf' href='#' class='button15 filt'>Отменить фильтh" + "</a>" + "<br>" + "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='pub' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>";
 										        	$('#qwerty').html(filterDiv);
 
 										        	function postFilter(filter){
@@ -173,7 +184,14 @@
 										        	}
 
 										        	$('.filt').click(function(event){
-										        		postFilter($(this)[0].id);
+										        		if($(this)[0].id == 'nonf'){
+										        			r3 = r2;
+										        			var rd = new Date;
+										        			$('#imgFl').html("<img src='../img/" + r3 + "?t=" + rd.getTime() + "' " + ">");
+										        		}
+										        		else{
+										        			postFilter($(this)[0].id);
+										        		}										        		
 										        	});
 
 										        	/*$('#kelvin').click(function(event){
