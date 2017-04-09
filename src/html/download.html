@@ -23,51 +23,6 @@
 		+ pad(d.getUTCSeconds())+'Z'
 		}
 	 </script>
-    <script type="text/javascript">
-    var us;
-    /*$( function () {
-      $( '.cropimage' ).each( function () {
-        var image = $(this),
-            cropwidth = image.attr('cropwidth'),
-            cropheight = image.attr('cropheight'),
-            results = image.next('.results' ),
-            x       = $('.cropX', results),
-            y       = $('.cropY', results),
-            w       = $('.cropW', results),
-            h       = $('.cropH', results),
-            download = results.next('.download').find('a');
-
-          image.cropbox( {width: cropwidth, height: cropheight, showControls: 'auto' } )
-            .on('cropbox', function( event, results, img ) {
-              x.text( results.cropX );
-              y.text( results.cropY );
-              w.text( results.cropW );
-              h.text( results.cropH );
-              download.attr('href', img.getDataURL());
-            });
-      } );
-
-      $('#select').on('change', function () {
-          var size = parseInt(this.value);
-          $('.cropimage').each(function () {
-            $(this).cropbox({width: size, height: size})
-          });
-      });
-
-    } ); */
-  </script>
-  <script> 
-  	var zzimg;
-  function sendReq(){
-				$.post("/method/uploadPhoto",{userName: 'test', date: '2017-04-08T16:18:11Z', description: 'test', photoFile: zzimg}, onAjaxSuccess, 'html');
-			}		
-			function onAjaxSuccess(data)
-				{
-				  // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
-				 	document.location.replace("../wall");				 
-				}
-		</script>
-	</script>
 </head>
 <body>
 
@@ -86,7 +41,7 @@
 			<script>
 			$('#fpass').on('click', function (e) {
 			    co = readCookie('token');
-			  $.get("../method/getPhotos",{token: co}, onAjaxSuccess, 'json');
+			  	$.get("../method/getPhotos",{token: co}, onAjaxSuccess, 'json');
 			});
 			</script>
 		</nav><!-- end navigation menu -->
@@ -131,9 +86,7 @@
 					$('input[type=file]').change(function(){
 					    files = this.files;
 					});
-					$('#bbb').click(function( event ){
-						sendReq();
-					});
+					
 					$('#but').click(function( event ){
 						if(typeof files === 'undefined'){
 							$('#err').html('Вы не выбрали картинку! Выберете картинку!<br>');
@@ -170,29 +123,66 @@
 						                // Файлы успешно загружены, делаем что нибудь здесь
 						 
 						                // выведем пути к загруженным файлам в блок '.ajax-respond'
-						                us = respond;
-						                $('#qwerty').html("<img class='cropimage' src='../img/" + respond + "' " + "cropwidth='200' cropheight='200'>" + "<div class='results'>" + "<b>X " + " </b>" + " <span class='cropX'>" + "</span>" + "<b>Y " + " </b>: " + " <span class='cropY'>" + "</span>" + "<b>W" + "</b>: " + " <span class='cropW'>" + "</span>" + "<b>H" + "</b>: " + "<span class='cropH'>" + "</span>" + "</div>" + "<br>" + "<select id='select'>" + "<option value='200' selected>200" + "</option>" + "<option value='300'>300" + "</option>" + "</select>" + "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='bbb' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>");
-						                $( '.cropimage' ).each( function () {
-								        var image = $(this),
-								            cropwidth = image.attr('cropwidth'),
-								            cropheight = image.attr('cropheight'),
-								            results = image.next('.results' ),
-								            x       = $('.cropX', results),
-								            y       = $('.cropY', results),
-								            w       = $('.cropW', results),
-								            h       = $('.cropH', results),
-								            download = results.next('.download').find('a');
+						                //us = respond;
+						                $('#qwerty').html("<img class='cropimage' src='../img/" + respond + "' " + "cropwidth='500' cropheight='500'>" + "<div class='results'>" + "<b>X " + " </b>" + " <span class='cropX'>" + "</span>" + "<b>Y " + " </b>: " + " <span class='cropY'>" + "</span>" + "<b>W" + "</b>: " + " <span class='cropW'>" + "</span>" + "<b>H" + "</b>: " + "<span class='cropH'>" + "</span>" + "</div>" + "<br>" + 
+						                	"<select id='select'>" + 
+						                		"<option value='500' selected>500" + "</option>" + 
+						                		"<option value='800'>800" + "</option>" +
+						                		"<option value='1000'>1000" + "</option>" +
+						                	 "</select>" + 
+						                	 "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='bbb' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>");
+						                
+						                var zzimg;
 
-								          image.cropbox( {width: cropwidth, height: cropheight, showControls: 'auto' } )
-								            .on('cropbox', function( event, results, img ) {
-								              x.text( results.cropX );
-								              y.text( results.cropY );
-								              w.text( results.cropW );
-								              h.text( results.cropH );
-								              zzimg = img;
-								              download.attr('href', img.getDataURL());
-								            });
-									      } );
+						                $('#bbb').click(function( event ){
+											var form = new FormData();
+									    	var ddd = new Date();
+											var d = ISODateString(ddd); 
+
+											var file = dataURItoBlob(zzimg.getDataURL());
+											file = blobToFile(file, respond);
+
+										    form.append("userName", "test");
+											form.append("date", d);
+											form.append("description", "testd");
+											form.append("photoFile", file);
+										    $.ajax({
+										        url: './method/uploadPhoto',
+										        type: 'POST',
+										        data: form,
+										        cache: false,
+										        dataType: 'html',
+										        processData: false, // Не обрабатываем файлы (Don't process the files)
+										        contentType: false, // Так jQuery скажет серверу что это строковой запрос
+										        success: function(respond){
+										        	$(location).attr('href','../wall');
+										        },
+										        error: function( jqXHR, textStatus, errorThrown ){
+												    console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+												}
+										    });
+										});
+
+						                $('.cropimage' ).each( function () {
+										        var image = $(this),
+										            cropwidth = image.attr('cropwidth'),
+										            cropheight = image.attr('cropheight'),
+										            results = image.next('.results' ),
+										            x       = $('.cropX', results),
+										            y       = $('.cropY', results),
+										            w       = $('.cropW', results),
+										            h       = $('.cropH', results),
+										            download = results.next('.download').find('a');
+
+										         image.cropbox( {width: cropwidth, height: cropheight, showControls: 'auto' } )
+										            .on('cropbox', function( event, results, img ) {
+										              x.text( results.cropX );
+										              y.text( results.cropY );
+										              w.text( results.cropW );
+										              h.text( results.cropH );
+										              zzimg = img;
+										            });
+									      });
 
 									      $('#select').on('change', function () {
 									          var size = parseInt(this.value);
