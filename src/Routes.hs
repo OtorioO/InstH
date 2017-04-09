@@ -141,8 +141,9 @@ routes pool = do
       nphoto <- liftIO $ (putPhotoToDbWithOrigin pool "image/jpeg" origin)
       nFiltr <- param "nameFilter"
       liftIO (doFilter nFiltr (T.unpack (pathToFiles <> origin)) (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))))
-      --text (fromOnly (LI.head nphoto))
-      html ("<img src=\"../img/" <> (fromOnly (LI.head nphoto)) <> "\"></img>")
+      setHeader "Cache-Control" "no-store"
+      text (fromOnly (LI.head nphoto))
+      --html ("<img src=\"../img/" <> (fromOnly (LI.head nphoto)) <> "\"></img>")
 
     post "/method/uploadPhoto" $ do
       us <- files
