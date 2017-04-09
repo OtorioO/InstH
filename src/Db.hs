@@ -21,12 +21,12 @@ import GHC.Int
 
 getListPhotos :: Pool Connection -> IO [PhotoStruct]
 getListPhotos pool = do
-  res <- fetchSimple pool "select user_name, image_src, date, description from user_photo where is_public = true" :: IO [(String, String, String, String)]
+  res <- fetchSimple pool "select user_name, image_src, date, description from user_photo where is_public = true order by date desc" :: IO [(String, String, String, String)]
   return $ map (\(userName, isrc, date, descr) -> PhotoStruct userName isrc date descr) res
 
 getListPhotosWithName :: Pool Connection -> String-> IO [PhotoStruct]
 getListPhotosWithName pool uName = do
-  res <- fetch pool (Only uName) ("select user_name, image_src, date, description from user_photo where is_public = true and user_name = ?") :: IO [(String, String, String, String)]
+  res <- fetch pool (Only uName) ("select user_name, image_src, date, description from user_photo where is_public = true and user_name = ? order by date desc") :: IO [(String, String, String, String)]
   return $ map (\(userName, isrc, date, descr) -> PhotoStruct userName isrc date descr) res
 
 
@@ -35,9 +35,14 @@ putPhotoToDb pool fileName userName date descr = do
 	res <- fetch pool [fileName, userName, date, descr] ("select add_photo (?, ?, ?, ?)") :: IO [Only Text]
 	return res
 
+putPhotoToDbWithOrigin :: Pool Connection -> Text -> Text -> IO [Only Text]
+putPhotoToDbWithOrigin pool nN origin = do
+  res <- fetch pool [nN, origin] ("select add_photo_wtho (?, ?)") :: IO [Only Text]
+  return res
+
 publishPhoto :: Pool Connection -> Text -> ActionM ()
 publishPhoto pool fileName = do
-	liftIO $ execSql pool [fileName] "update user_table set is_public = true where image_src = ?"
+	liftIO $ execSql pool [fileName] "update user_photo set is_public = true where image_src = ?"
 	return ()
 
 regUser :: Pool Connection -> Text -> Text -> Text-> Text-> IO [Only Int]

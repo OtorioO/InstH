@@ -35,14 +35,14 @@
 		<nav>
 			<ul>
 				<li><a href="../wall">Стена</a></li>
-				<li><a id = "fpass" href="#">Ваши фотографии</a></li>
 				<li><a href="#" class="selected">Загрузить фотографию</a></li>
 			</ul>
 			<script>
-			$('#fpass').on('click', function (e) {
+			/*$('#fpass').on('click', function (e) {
+				$(location).attr('href','../wall');
 			    co = readCookie('token');
 			  	$.get("../method/getPhotos",{token: co}, onAjaxSuccess, 'json');
-			});
+			});*/
 			</script>
 		</nav><!-- end navigation menu -->
 
@@ -142,12 +142,13 @@
 											var file = dataURItoBlob(zzimg.getDataURL());
 											file = blobToFile(file, respond);
 
-										    form.append("userName", "test");
-											form.append("date", d);
-											form.append("description", "testd");
-											form.append("photoFile", file);
+										    form.append("originName", respond);
+											form.append("photoFile", file, respond);
+
+											$(this).hide();
+
 										    $.ajax({
-										        url: './method/uploadPhoto',
+										        url: './method/uploadPhotoWithOrigin',
 										        type: 'POST',
 										        data: form,
 										        cache: false,
@@ -155,7 +156,12 @@
 										        processData: false, // Не обрабатываем файлы (Don't process the files)
 										        contentType: false, // Так jQuery скажет серверу что это строковой запрос
 										        success: function(respond){
-										        	$(location).attr('href','../wall');
+										        	$.post("../method/publishPhoto",
+										        		{image_src: respond}, 
+										        		function (respond){
+										        			$(location).attr('href','../wall');
+										        		}
+										        	);
 										        },
 										        error: function( jqXHR, textStatus, errorThrown ){
 												    console.log('ОШИБКИ AJAX запроса: ' + textStatus );
