@@ -97,7 +97,7 @@ bright imgin imgout colvo = --контрастность
                           ".png" -> loadPngFile imgin 
                           ".gif" -> loadGifFile imgin ) 
 		   (\x -> do
-                     brightness img colvo
+                     brightness x colvo
                      saveJpegFile 95 imgout x
                      putStrLn "OK")
 
