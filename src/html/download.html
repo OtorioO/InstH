@@ -163,15 +163,17 @@
 										        	function postFilter(filter){
 
 										        		$.get("../method/doFilter",
-													        		{nameFilter: filter, originName: r2}, 
+													        		{nameFilter: filter, 
+													        		 originName: r2}, 
 													        		function (respond3){
 													        			r3 = respond3;
-													        			$('#imgFl').html("<img src='../img/" + respond3 + "' " + ">");
+													        			var rd = new Date;
+													        			$('#imgFl').html("<img src='../img/" + respond3 + "?t=" + rd.getTime() + "' " + ">");
 													        		});
 										        	}
 
 										        	$('.filt').click(function(event){
-										        		postFilter($(this).id);
+										        		postFilter($(this)[0].id);
 										        	});
 
 										        	/*$('#kelvin').click(function(event){
