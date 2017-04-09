@@ -73,7 +73,10 @@
 				 for(i = 0; i < data.length; ++i)
 				 {
 				 	div = div + "<div class='work'>" +
-				 	"<a><img src='../img/" + data[i].image_src + "' class='media' alt=''/>" + "<div class='caption'><div class='work_title'><h1>" + "<p>Author: " + data[i].userName + "</p><p>Date: " + data[i].date + "</p><br>Description: " + data[i].description + "</h1></div></div></a></div>";
+				 		"<a><img src='../img/" + data[i].image_src + "' class='media' alt=''/>" + 
+				 		"<div class='caption'><div class='work_title'><h1>" + 
+				 		"<p>Author: " + data[i].userName + "</p><p>Date: " + data[i].date + "</p><br>Description: " + data[i].description + 
+				 		"</h1></div></div> </a></div>";
 				 }
 				 $("#qwe").html(div);				 
 				}
