@@ -120,15 +120,18 @@ routes pool = do
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
       text (fromOnly (LI.head nphoto))
     
-    get "/method/uploadPhotoWithOrigin" $do
-      --h <- request
-      --text (T.pack (show h))
-    --недописано
-      text "404"
+    post "/method/uploadPhotoWithOrigin" $do
+      us <- files
+      origin <- param "originName"
+
+      nphoto <- liftIO $ putPhotoToDbWithOrigin pool (T.pack(show (getFileName (getFileInfo us)))) origin
+      liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
+      text (fromOnly (LI.head nphoto))
 
     post "/method/publishPhoto" $ do
       uF <- param "image_src"
       publishPhoto pool uF
+      text "ok"
 
     get "/wall" $ do
       h <- header "Cookie"
