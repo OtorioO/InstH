@@ -70,6 +70,7 @@
 				<div class="ajax-respond"></div>
 				<script>
 				    var files;
+				    var r2;
 
 
 					$('input[type=file]').change(function(){
@@ -122,7 +123,7 @@
 						                		"<option value='800'>800" + "</option>" +
 						                		"<option value='1000'>1000" + "</option>" +
 						                	 "</select>" + 
-						                	 "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='bbb' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>");
+						                	 "<br>" + "<div style='float:right;'>" + "<a style='text-decoration: none;' id='bbb' href='#' class='submit button'>Перейти к выбору фильтров" + "</a>" + "</div>" + "</div>");
 						                
 						                var zzimg;
 
@@ -154,13 +155,94 @@
 										        dataType: 'html',
 										        processData: false, // Не обрабатываем файлы (Don't process the files)
 										        contentType: false, // Так jQuery скажет серверу что это строковой запрос
-										        success: function(respond){
-										        	$.post("../method/publishPhoto",
+										        success: function(respond2){
+										        	r2 = respond2;
+										        	var filterDiv = "<div id='imgFl'>" + "<img src='../img/" + respond2 + "' " + ">" + "</div>" + "<br>" + "<a style='text-decoration: none;' id='kelvin' href='kelvin' class='submit button'>Фильтр kelvin" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='blackwhite' href='blackwhite' class='submit button'>Фильтр blackwhite" + "</a>" + "<a style='text-decoration: none;' id='negativfiltr' href='negativfiltr' class='submit button'>Фильтр negativfiltr" + "</a>" + "<a style='text-decoration: none;' id='meanR' href='meanR' class='submit button'>Фильтр meanR" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='embfilters' href='embfilters' class='submit button'>Фильтр embfilters" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='bright' href='bright' class='submit button'>Фильтр bright" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='pub' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>";
+										        	$('#qwerty').html(filterDiv);
+
+										        	function postFilter(filter){
+										        		$.post("../method/doFilter",
+													        		{nameFilter: document.getElementById(filter).getAttribute("href"), originName: r2}, 
+													        		function (respond3){
+													        			$('#imgFl').html("<img src='../img/" + respond3 + "' " + ">");
+													        		}
+										        	}
+
+										        	$('#kelvin').click(function(event){
+										        		postFilter('kelvin');
+										        	});
+										        	$('#blackwhite').click(function(event){
+										        		postFilter('blackwhite');
+										        	});
+										        	$('#negativfiltr').click(function(event){
+										        		postFilter('negativfiltr');
+										        	});
+										        	$('#meanR').click(function(event){
+										        		postFilter('meanR');
+										        	});
+										        	$('#embfilters').click(function(event){
+										        		postFilter('embfilters');
+										        	});
+										        	$('#bright').click(function(event){
+										        		postFilter('bright');
+										        	});
+										        	
+
+
+									                $('#pub').click(function( event ){
+														var form = new FormData();
+												    	var ddd = new Date();
+														var d = ISODateString(ddd); 
+
+														var file = dataURItoBlob(zzimg.getDataURL());
+														file = blobToFile(file, respond);
+
+													    form.append("originName", respond);
+														form.append("photoFile", file, respond);
+
+														$(this).hide();
+
+													    $.ajax({
+													        url: './method/uploadPhotoWithOrigin',
+													        type: 'POST',
+													        data: form,
+													        cache: false,
+													        dataType: 'html',
+													        processData: false, // Не обрабатываем файлы (Don't process the files)
+													        contentType: false, // Так jQuery скажет серверу что это строковой запрос
+													        success: function(respond){
+													        	var filterDiv = "<img src='../img/" + respond + "' " + ">" + "<br>" + "<a style='text-decoration: none;' id='kelvin' href='kelvin' class='submit button'>Фильтр kelvin" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='blackwhite' href='blackwhite' class='submit button'>Фильтр blackwhite" + "</a>" + "<a style='text-decoration: none;' id='negativfiltr' href='negativfiltr' class='submit button'>Фильтр negativfiltr" + "</a>" + "<a style='text-decoration: none;' id='meanR' href='meanR' class='submit button'>Фильтр meanR" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='embfilters' href='embfilters' class='submit button'>Фильтр embfilters" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='bright' href='bright' class='submit button'>Фильтр bright" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='pub' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>";
+													        	$('#qwerty').html(filterDiv);
+
+													        	/*$.post("../method/publishPhoto",
+													        		{image_src: respond}, 
+													        		function (respond){
+													        			$(location).attr('href','../wall');
+													        		}
+													        	);*/
+													        },
+													        error: function( jqXHR, textStatus, errorThrown ){
+															    console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+															}
+													    });
+													});
+
+
+
+										        	/*$.post("../method/publishPhoto",
 										        		{image_src: respond}, 
 										        		function (respond){
 										        			$(location).attr('href','../wall');
 										        		}
-										        	);
+										        	);*/
+
+
+
+
+
+
+
+
 										        },
 										        error: function( jqXHR, textStatus, errorThrown ){
 												    console.log('ОШИБКИ AJAX запроса: ' + textStatus );

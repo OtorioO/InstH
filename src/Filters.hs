@@ -101,6 +101,15 @@ bright imgin imgout colvo = --контрастность
                      saveJpegFile 95 imgout x
                      putStrLn "OK")  
 
-
+customcolor :: String -> String -> Int -> Int -> Int -> IO ()
+customcolor imgin imgout r g b = 
+	 withImage  (case (map toLower $ takeExtension imgin) of
+                          ".jpg" -> loadJpegFile imgin  
+                          ".png" -> loadPngFile imgin 
+                          ".gif" -> loadGifFile imgin ) 
+		   (\x -> do
+                     colorize x  (r,g,b,1)
+                     saveJpegFile 95 imgout x
+                     putStrLn "OK")
 
 	
