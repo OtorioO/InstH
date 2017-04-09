@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
 
@@ -119,4 +120,27 @@ function blobToFile(theBlob, fileName){
     theBlob.lastModifiedDate = new Date();
     theBlob.name = fileName;
     return theBlob;
+}
+
+function ISODateString(d) {
+        function pad(n) {return n<10 ? '0'+n : n}
+        return d.getUTCFullYear()+'-'
+        + pad(d.getUTCMonth()+1)+'-'
+        + pad(d.getUTCDate())+'T'
+        + pad(d.getUTCHours())+':'
+        + pad(d.getUTCMinutes())+':'
+        + pad(d.getUTCSeconds())+'Z'
+}
+
+
+function getName (str){
+        if (str.lastIndexOf('\\')){
+            var i = str.lastIndexOf('\\')+1;
+        }
+        else{
+            var i = str.lastIndexOf('/')+1;
+        }                       
+        var filename = str.slice(i);            
+        var uploaded = document.getElementById("fileformlabel");
+        uploaded.innerHTML = filename;
 }
