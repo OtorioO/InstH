@@ -12,17 +12,6 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/date.js"></script>
     <script type="text/javascript" src="js/jquery.cropbox.js"></script>
-    <script type="text/javascript">
-	    function ISODateString(d) {
-		function pad(n) {return n<10 ? '0'+n : n}
-		return d.getUTCFullYear()+'-'
-		+ pad(d.getUTCMonth()+1)+'-'
-		+ pad(d.getUTCDate())+'T'
-		+ pad(d.getUTCHours())+':'
-		+ pad(d.getUTCMinutes())+':'
-		+ pad(d.getUTCSeconds())+'Z'
-		}
-	 </script>
 </head>
 <body>
 
@@ -72,7 +61,7 @@
 						<input type="file" accept="image/*" name="upload" id="upload" onchange="getName(this.value);" required/>
 					</div>
 	        		<br>
-	        		<input type="text" name="author" placeholder="Автор" id="author" class="txtt" required/>
+	        		<input type="text" readonly = "true" name="author" placeholder="Автор" id="author" class="txtt" required/>
 	        		<textarea rows="4" cols="50" name="description" id="description" placeholder="Введите ваш комментарий к фотографии:" class="message" required></textarea>
 	        		<div style="float:right;"><a style="text-decoration: none;" id="but" href="#" class="submit button">Перейти к редактированию</a></div></div>
 				<!--	<input type="submit" class="button" name="submit" class="btn btn-default" value="Сохранить">
@@ -207,16 +196,17 @@
 				</script>
 		</section>  
 
-	<script>function getName (str){
-    if (str.lastIndexOf('\\')){
-        var i = str.lastIndexOf('\\')+1;
-    }
-    else{
-        var i = str.lastIndexOf('/')+1;
-    }						
-    var filename = str.slice(i);			
-    var uploaded = document.getElementById("fileformlabel");
-    uploaded.innerHTML = filename;
-}</script>
+	<script>
+	var userInfo;
+	co = readCookie('token');
+	$.get("../method/getUserInfo",
+	    {token: co}, 
+	    function (response) {
+	        userInfo = response[0];
+	        $('#author')[0].value = userInfo.userN;
+	    }, 
+	    'json'
+	);
+	</script>
 </body>
 </html>

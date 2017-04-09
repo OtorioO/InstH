@@ -107,6 +107,11 @@ routes pool = do
       photos <- liftIO $ getListPhotos pool
       sendPhotosList photos
 
+    get "/method/getUserInfo" $ do
+      t <- param "token"
+      info <-liftIO $ getUserInfoWithToken pool t
+      json info
+
     post "/method/uploadPhoto" $ do
       us <- files
       uN <- param "userName"

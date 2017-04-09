@@ -70,6 +70,10 @@ getListPhotosWithToken pool t = do
   res <- fetch pool (Only t) ("select * from get_photos_token(?)") :: IO [(String, String, String, String)]
   return $ map (\(userName, isrc, date, descr) -> PhotoStruct userName isrc date descr) res
 
+getUserInfoWithToken :: Pool Connection -> String-> IO [UserInfo]
+getUserInfoWithToken pool t = do
+  res <- fetch pool (Only t) ("select * from get_useri_token(?)") :: IO [(String, String, String)]
+  return $ map (\(userName, realName, email) -> UserInfo userName realName email) res
 
 
 fetchSimple :: FromRow r => Pool Connection -> Query -> IO [r]
