@@ -1,9 +1,8 @@
 {-# LANGUAGE
 FlexibleContexts, ScopedTypeVariables, BangPatterns, MagicHash,
 QuasiQuotes #-}
-module Filters
-    ( 
-    ) where
+
+module Filters where
 
 
 import Prelude as P

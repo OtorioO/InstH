@@ -75,6 +75,10 @@ getUserInfoWithToken pool t = do
   res <- fetch pool (Only t) ("select * from get_useri_token(?)") :: IO [(String, String, String)]
   return $ map (\(userName, realName, email) -> UserInfo userName realName email) res
 
+getRandFileName :: Pool Connection -> Text -> Text -> IO [Text]
+getRandFileName pool format suff = do
+  res <- fetch pool [format, suff] "select * from generate_filename(?,?)" :: IO [Only Text]
+  return $ map (\el -> fromOnly el) res
 
 fetchSimple :: FromRow r => Pool Connection -> Query -> IO [r]
 fetchSimple pool sql = withResource pool retrieve

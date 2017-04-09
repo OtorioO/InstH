@@ -9,6 +9,7 @@ module Routes
 import Lib
 import Domen
 import Db
+import Filters
 
 import Web.Scotty
 
@@ -93,6 +94,7 @@ routes pool = do
       resp <- liftIO (deactToken pool token)
       text "ok"
 
+
     get "/method/getPhotos" $ do
       uN <- param "userName" `rescue` (const next )
       photos <- liftIO $ getListPhotosWithName pool uN
@@ -106,11 +108,21 @@ routes pool = do
     get "/method/getPhotos" $ do
       photos <- liftIO $ getListPhotos pool
       sendPhotosList photos
+ 
 
     get "/method/getUserInfo" $ do
       t <- param "token"
       info <-liftIO $ getUserInfoWithToken pool t
       json info
+
+    get "/method/testFilter" $ do
+      origin <- param "originName"
+      nphoto <- liftIO $ (putPhotoToDbWithOrigin pool "filename.jpg" origin)
+      --res <- liftIO $ getRandFileName pool "jpg" ""
+
+      text (fromOnly (LI.head nphoto))
+      --liftIO (maybefilters (T.unpack (pathToFiles <> p1)) (T.unpack (pathToFiles <> p2)))
+      --html ("<img src=\"../img/" <> p2 <> "\"></img>")
 
     post "/method/uploadPhoto" $ do
       us <- files
@@ -138,6 +150,8 @@ routes pool = do
       publishPhoto pool uF
       text "ok"
 
+
+
     get "/wall" $ do
       h <- header "Cookie"
       resp <- liftIO (сheckTokenFromCookie pool h)
@@ -159,7 +173,6 @@ routes pool = do
         then redirect "/wall"
         else showMainPage
 
-
   --get "/:w" $ do
   --    word <- param "w"
   --    file $ mconcat ["./src/html/", word]
@@ -180,20 +193,8 @@ routes pool = do
         word <- param "w"
         file $ mconcat ["./src/html/css/", word]
 
-    
+ 
 
-    --post "/regAction" $ do register
-        {-
-        
-        
-        file $ "./src/html/index.html"
-
-    get "/loginAction" $ do
-        login <- param "login"
-        password <- param "password"
-	
-        file $ "./src/html/index.html"
-      -}
 
 
 showMainPage :: ActionM ()
