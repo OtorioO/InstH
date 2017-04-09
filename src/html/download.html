@@ -71,7 +71,7 @@
 				<script>
 				    var files;
 				    var r2;
-
+				    var r3;
 
 					$('input[type=file]').change(function(){
 					    files = this.files;
@@ -157,19 +157,24 @@
 										        contentType: false, // Так jQuery скажет серверу что это строковой запрос
 										        success: function(respond2){
 										        	r2 = respond2;
-										        	var filterDiv = "<div id='imgFl'>" + "<img src='../img/" + respond2 + "' " + ">" + "</div>" + "<br>" + "<a style='text-decoration: none;' id='kelvin' href='kelvin' class='submit button'>Фильтр kelvin" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='blackwhite' href='blackwhite' class='submit button'>Фильтр blackwhite" + "</a>" + "<a style='text-decoration: none;' id='negativfiltr' href='negativfiltr' class='submit button'>Фильтр negativfiltr" + "</a>" + "<a style='text-decoration: none;' id='meanR' href='meanR' class='submit button'>Фильтр meanR" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='embfilters' href='embfilters' class='submit button'>Фильтр embfilters" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='bright' href='bright' class='submit button'>Фильтр bright" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='pub' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>";
+										        	var filterDiv = "<div id='imgFl'>" + "<img src='../img/" + respond2 + "' " + ">" + "</div>" + "<p>" + "<a style='text-decoration: none;' id='kelvin' href='#' class='filt'>Фильтр kelvin" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='blackwhite' href='#' class='filt'>Фильтр blackwhite" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='negativfiltr' href='#' class='filt'>Фильтр negativfiltr" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='meanR' href='#' class='filt'>Фильтр meanR" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='embfilters' href='#' class='filt'>Фильтр embfilters" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='bright' href='#' class='filt'>Фильтр bright" + "</a>" + "</p>" + "<p>" + "<a style='text-decoration: none;' id='pub' href='#' class='submit button'>Опубликовать" + "</a>" + "</p>";
 										        	$('#qwerty').html(filterDiv);
 
 										        	function postFilter(filter){
-										        		$.post("../method/doFilter",
-													        		{nameFilter: document.getElementById(filter).getAttribute("href"), 
-													        		originName: r2}, 
+
+										        		$.get("../method/doFilter",
+													        		{nameFilter: filter, originName: r2}, 
 													        		function (respond3){
+													        			r3 = respond3;
 													        			$('#imgFl').html("<img src='../img/" + respond3 + "' " + ">");
 													        		});
 										        	}
 
-										        	$('#kelvin').click(function(event){
+										        	$('.filt').click(function(event){
+										        		postFilter($(this).id);
+										        	});
+
+										        	/*$('#kelvin').click(function(event){
 										        		postFilter('kelvin');
 										        	});
 										        	$('#blackwhite').click(function(event){
@@ -186,62 +191,19 @@
 										        	});
 										        	$('#bright').click(function(event){
 										        		postFilter('bright');
-										        	});
+										        	});*/
 										        	
 
 
-									                $('#pub').click(function( event ){
-														var form = new FormData();
-												    	var ddd = new Date();
-														var d = ISODateString(ddd); 
-
-														var file = dataURItoBlob(zzimg.getDataURL());
-														file = blobToFile(file, respond);
-
-													    form.append("originName", respond);
-														form.append("photoFile", file, respond);
-
-														$(this).hide();
-
-													    $.ajax({
-													        url: './method/uploadPhotoWithOrigin',
-													        type: 'POST',
-													        data: form,
-													        cache: false,
-													        dataType: 'html',
-													        processData: false, // Не обрабатываем файлы (Don't process the files)
-													        contentType: false, // Так jQuery скажет серверу что это строковой запрос
-													        success: function(respond){
-													        	var filterDiv = "<img src='../img/" + respond + "' " + ">" + "<br>" + "<a style='text-decoration: none;' id='kelvin' href='kelvin' class='submit button'>Фильтр kelvin" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='blackwhite' href='blackwhite' class='submit button'>Фильтр blackwhite" + "</a>" + "<a style='text-decoration: none;' id='negativfiltr' href='negativfiltr' class='submit button'>Фильтр negativfiltr" + "</a>" + "<a style='text-decoration: none;' id='meanR' href='meanR' class='submit button'>Фильтр meanR" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='embfilters' href='embfilters' class='submit button'>Фильтр embfilters" + "</a>" + "</a>" + "<a style='text-decoration: none;' id='bright' href='bright' class='submit button'>Фильтр bright" + "</a>" + "<br>" + "<a style='text-decoration: none;' id='pub' href='#' class='submit button'>Опубликовать" + "</a>" + "</div>" + "</div>";
-													        	$('#qwerty').html(filterDiv);
-
-													        	/*$.post("../method/publishPhoto",
-													        		{image_src: respond}, 
+									                $('#pub').click(function(event){
+													    $.post("../method/publishPhoto",
+													        		{image_src: r3}, 
 													        		function (respond){
 													        			$(location).attr('href','../wall');
 													        		}
-													        	);*/
-													        },
-													        error: function( jqXHR, textStatus, errorThrown ){
-															    console.log('ОШИБКИ AJAX запроса: ' + textStatus );
-															}
+													        	);									             
 													    });
-													});
-
-
-
-										        	/*$.post("../method/publishPhoto",
-										        		{image_src: respond}, 
-										        		function (respond){
-										        			$(location).attr('href','../wall');
-										        		}
-										        	);*/
-
-
-
-
-
-
+													
 
 
 										        },
