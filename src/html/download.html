@@ -78,6 +78,8 @@
 					});
 					
 					$('#but').click(function( event ){
+						var author = document.getElementById('author').value;
+						var de = document.getElementById('description').value;
 						if(typeof files === 'undefined'){
 							$('#err').html('Вы не выбрали картинку! Выберете картинку!<br>');
 							return false;
@@ -88,7 +90,7 @@
 							return false;
 							}
 							$('#err').html('');
-							event.stopPropagation(); // Остановка происходящего
+						/*	event.stopPropagation(); // Остановка происходящего
 					    	event.preventDefault();  // Полная остановка 
 					    	var form = new FormData();
 					    	//var d = new Date().toString('dd.MM.yyyy');
@@ -113,8 +115,9 @@
 						                // Файлы успешно загружены, делаем что нибудь здесь
 						 
 						                // выведем пути к загруженным файлам в блок '.ajax-respond'
-						                //us = respond;
-						                $('#qwerty').html("<img class='cropimage' src='../img/" + respond + "' " + "cropwidth='500' cropheight='500'>" + "<div class='results'>" + "<b>X " + " </b>" + " <span class='cropX'>" + "</span>" + "<b>Y " + " </b>: " + " <span class='cropY'>" + "</span>" + "<b>W" + "</b>: " + " <span class='cropW'>" + "</span>" + "<b>H" + "</b>: " + "<span class='cropH'>" + "</span>" + "</div>" + "<br>" + 
+						                //us = respond;*/
+						                var respond = URL.createObjectURL(files[0]);
+						                $('#qwerty').html("<img class='cropimage' src='" + respond + "' " + "cropwidth='500' cropheight='500'>" + "<div class='results'>" + "<b>X " + " </b>" + " <span class='cropX'>" + "</span>" + "<b>Y " + " </b>: " + " <span class='cropY'>" + "</span>" + "<b>W" + "</b>: " + " <span class='cropW'>" + "</span>" + "<b>H" + "</b>: " + "<span class='cropH'>" + "</span>" + "</div>" + "<br>" + 
 						                	"<select id='select'>" + 
 						                		"<option value='500' selected>500" + "</option>" + 
 						                		"<option value='800'>800" + "</option>" +
@@ -125,6 +128,11 @@
 						                var zzimg;
 
 						                $('#bbb').click(function( event ){
+
+						                	event.stopPropagation(); // Остановка происходящего
+									    	event.preventDefault();  // Полная остановка 
+									    	//var d = new Date().toString('dd.MM.yyyy');
+		
 											var form = new FormData();
 									    	var ddd = new Date();
 											var d = ISODateString(ddd); 
@@ -132,13 +140,15 @@
 											var file = dataURItoBlob(zzimg.getDataURL());
 											file = blobToFile(file, respond);
 
-										    form.append("originName", respond);
+											form.append("userName", author);
+											form.append("date", d);
+											form.append("description", de);
 											form.append("photoFile", file, respond);
 
 											$(this).hide();
 
 										    $.ajax({
-										        url: './method/uploadPhotoWithOrigin',
+										        url: './method/uploadPhoto',
 										        type: 'POST',
 										        data: form,
 										        cache: false,
@@ -267,11 +277,11 @@
 									            $(this).cropbox({width: size, height: size})
 									          });
 									      });
-						        }
+						    //    }
 						        /*error: function( jqXHR, textStatus, errorThrown ){
 						            console.log('ОШИБКИ AJAX запроса: ' + textStatus );
 						        }*/
-						    });
+						 //   });
 					    }				    
 					 
 					});

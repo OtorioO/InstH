@@ -136,10 +136,9 @@ routes pool = do
       --html ("<img src=\"../img/" <> (fromOnly (LI.head nphoto)) <> "\"></img>")-}
 
 
-
     get "/method/doFilter" $ do
       origin <- param "originName"
-      nphoto <- liftIO $ (putPhotoToDbWithOrigin pool "filename.jpg" origin)
+      nphoto <- liftIO $ (putPhotoToDbWithOrigin pool "image/jpeg" origin)
       nFiltr <- param "nameFilter"
       liftIO (doFilter nFiltr (T.unpack (pathToFiles <> origin)) (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))))
       text (fromOnly (LI.head nphoto))
@@ -150,19 +149,21 @@ routes pool = do
       uN <- param "userName"
       date <- param "date"
       des <- param "description"
-      nphoto <- liftIO $ putPhotoToDb pool (T.pack(show (getFileName (getFileInfo us)))) uN date des
-
+      
         --text (T.pack (show (length us)))
        -- text . T.pack $(show (getFileInfo (L.head us)))
       --text $ (T.pack(show (getFileName (getFileInfo us))) <> T.pack(show (getFileType (getFileInfo us))))
+
+      nphoto <- liftIO $ putPhotoToDb pool (T.pack(show (getFileType (getFileInfo us)))) uN date des
+
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
       text (fromOnly (LI.head nphoto))
     
     post "/method/uploadPhotoWithOrigin" $do
       us <- files
       origin <- param "originName"
-
-      nphoto <- liftIO $ putPhotoToDbWithOrigin pool (T.pack(show (getFileName (getFileInfo us)))) origin
+      --text $ (T.pack(show (getFileName (getFileInfo us))) <> "  " <> T.pack(show (getFileType (getFileInfo us))))
+      nphoto <- liftIO $ putPhotoToDbWithOrigin pool (T.pack(show (getFileType (getFileInfo us)))) origin
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
       text (fromOnly (LI.head nphoto))
 
