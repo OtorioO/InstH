@@ -141,8 +141,8 @@ routes pool = do
       nphoto <- liftIO $ (putPhotoToDbWithOrigin pool "image/jpeg" origin)
       nFiltr <- param "nameFilter"
       liftIO (doFilter nFiltr (T.unpack (pathToFiles <> origin)) (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))))
-      text (fromOnly (LI.head nphoto))
-
+      --text (fromOnly (LI.head nphoto))
+      html ("<img src=\"../img/" <> (fromOnly (LI.head nphoto)) <> "\"></img>")
 
     post "/method/uploadPhoto" $ do
       us <- files
@@ -159,13 +159,14 @@ routes pool = do
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
       text (fromOnly (LI.head nphoto))
     
-    post "/method/uploadPhotoWithOrigin" $do
+    
+ {-   post "/method/uploadPhotoWithOrigin" $do
       us <- files
       origin <- param "originName"
       --text $ (T.pack(show (getFileName (getFileInfo us))) <> "  " <> T.pack(show (getFileType (getFileInfo us))))
       nphoto <- liftIO $ putPhotoToDbWithOrigin pool (T.pack(show (getFileType (getFileInfo us)))) origin
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
-      text (fromOnly (LI.head nphoto))
+      text (fromOnly (LI.head nphoto))-}
 
     post "/method/publishPhoto" $ do
       uF <- param "image_src"
