@@ -65,6 +65,17 @@ getFileContent (FileInfo _ _ content) = content
       return $ (LI.head (map (\el -> fromOnly el) res))
 --сheckTokenFromCookie pool h = liftIO (checkToken pool (fromMaybe "" (T.stripPrefix "token=" (fromMaybe "NoCookie" h))
 
+doFilter :: T.Text -> String -> String -> IO ()
+doFilter nameFilter origin new = do
+  case nameFilter of
+    "kelvin" -> kelvin origin new
+    "blackwhite" -> blackwhite origin new
+    "negativfiltr" -> negativfiltr origin new
+    "meanR" -> meanR origin new
+    "embfilters" -> embfilters origin new
+    "bright" -> bright origin new 50
+    _ -> return ()
+
 
 routes :: Pool Connection -> ScottyM ()
 routes pool = do
@@ -115,35 +126,48 @@ routes pool = do
       info <-liftIO $ getUserInfoWithToken pool t
       json info
 
-    get "/method/testFilter" $ do
+ {-   get "/method/testFilter" $ do
       origin <- param "originName"
       nphoto <- liftIO $ (putPhotoToDbWithOrigin pool "filename.jpg" origin)
       --res <- liftIO $ getRandFileName pool "jpg" ""
-
-      text (fromOnly (LI.head nphoto))
+      liftIO (kelvin (T.unpack (pathToFiles <> origin)) (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))))
+    --text (fromOnly (LI.head nphoto))
       --liftIO (maybefilters (T.unpack (pathToFiles <> p1)) (T.unpack (pathToFiles <> p2)))
-      --html ("<img src=\"../img/" <> p2 <> "\"></img>")
+      --html ("<img src=\"../img/" <> (fromOnly (LI.head nphoto)) <> "\"></img>")-}
+
+
+    get "/method/doFilter" $ do
+      origin <- param "originName"
+      nphoto <- liftIO $ (putPhotoToDbWithOrigin pool "image/jpeg" origin)
+      nFiltr <- param "nameFilter"
+      liftIO (doFilter nFiltr (T.unpack (pathToFiles <> origin)) (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))))
+      setHeader "Cache-Control" "no-store"
+      text (fromOnly (LI.head nphoto))
+      --html ("<img src=\"../img/" <> (fromOnly (LI.head nphoto)) <> "\"></img>")
 
     post "/method/uploadPhoto" $ do
       us <- files
       uN <- param "userName"
       date <- param "date"
       des <- param "description"
-      nphoto <- liftIO $ putPhotoToDb pool (T.pack(show (getFileName (getFileInfo us)))) uN date des
-
+      
         --text (T.pack (show (length us)))
        -- text . T.pack $(show (getFileInfo (L.head us)))
       --text $ (T.pack(show (getFileName (getFileInfo us))) <> T.pack(show (getFileType (getFileInfo us))))
+
+      nphoto <- liftIO $ putPhotoToDb pool (T.pack(show (getFileType (getFileInfo us)))) uN date des
+
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
       text (fromOnly (LI.head nphoto))
     
-    post "/method/uploadPhotoWithOrigin" $do
+    
+ {-   post "/method/uploadPhotoWithOrigin" $do
       us <- files
       origin <- param "originName"
-
-      nphoto <- liftIO $ putPhotoToDbWithOrigin pool (T.pack(show (getFileName (getFileInfo us)))) origin
+      --text $ (T.pack(show (getFileName (getFileInfo us))) <> "  " <> T.pack(show (getFileType (getFileInfo us))))
+      nphoto <- liftIO $ putPhotoToDbWithOrigin pool (T.pack(show (getFileType (getFileInfo us)))) origin
       liftAndCatchIO (L.writeFile (T.unpack (pathToFiles <> (fromOnly (LI.head nphoto)))) (getFileContent (getFileInfo us))) 
-      text (fromOnly (LI.head nphoto))
+      text (fromOnly (LI.head nphoto))-}
 
     post "/method/publishPhoto" $ do
       uF <- param "image_src"
